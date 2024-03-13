@@ -21,7 +21,7 @@ El \emph{Principio de D'Alembert estático} dice que:
 \end{equation}
 
 El término \emph{fuerzas aplicadas} hace referencia a las fuerzas que se aplican directamente sobre
-las partículas del sistema. Como consecuencia de éstas y de la existencia de \emph{ligaduras} que
+las partículas del sistema. Como consecuencia de estas y de la existencia de \emph{ligaduras} que
 restringen sus movimientos, surgen unas fuerzas de ligadura como reacción a las primeras.
 
 Para habituarnos al significado de las magnitudes implicadas vamos a resolver un ejercicio
@@ -30,7 +30,10 @@ Newton, y después mediante el Principio de D'Alembert estático.
 
 Antes de mostrar el ejercicio podríamos preguntarnos qué utilidad tiene el Principio de
 D'Alembert, si se pueden utilizar las leyes de Newton. Resulta que a partir de este Principio
-se puede definir el \emph{lagrangiano}. De hecho así ocurrió históricamente.
+se puede definir el \emph{lagrangiano}. De hecho así ocurrió históricamente. Además, hay sistemas
+(no mecánicos) que no se pueden resolver mediante las leyes de Newton, a los que sí se puede
+aplicar el \emph{lagrangiano}. Por tanto, este último concepto es más general que las citadas leyes
+de Newton.
 
 \subsubsection{Ejercicio}
 Consideremos una barra de densidad uniforme de longitud $L$ y masa $M$, que está apoyada
@@ -229,7 +232,7 @@ Vamos a resolver el problema de dos formas:
   dirigiéndose hacia la izquierda.
   Recordamos que, por sencillez, no hay fricción de la barra con la pared.
   
-  Como la barra está en equilibrio, la resultante de las fuerzas que actúan sobre ella es nula
+  Como la barra está en equilibrio, la resultante de las fuerzas que actúan sobre ella es nula.
   \[
     \sum_i \vvv{F}_i = \vvv{0}
   \]
@@ -240,32 +243,32 @@ Vamos a resolver el problema de dos formas:
     (N_2, 0) + (0,-mg) + (0,N_1) + (-f_r, 0) = (0, 0)
   \]
 
-  De donde se deducen dos ecuaciones que relacionan los módulos de las fuerzas
-  \begin{align}\label{eq:mt-el-ej-fuerzas-n2}
+  De donde se deducen dos ecuaciones que relacionan los módulos de las fuerzas.
+  \begin{align}\label{eq:el-ej-fuerzas-n2}
     f_r &= N_2\\
-    \label{eq:mt-el-ej-fuerzas-n1}
+    \label{eq:el-ej-fuerzas-n1}
     N_1 &= mg
   \end{align}
 
   Además, la suma de momentos con respecto a un punto arbitrario, llamado (\emph{centro}),
   se anula.
-  El momento de una fuerza con respecto a un punto es el producto vectorial
+  El momento de una fuerza con respecto a un punto es el producto vectorial.
   \[
     \vvv{M} = \vvv{r}\times\vvv{F}
   \]
   Cuando las fuerzas son coplanares, como en nuestro caso, el sentido de los momentos se
   puede representar mediante un signo.
-  En el apéndice~\ref{chapt:mt-ap-momento-fuerza} se repasa brevemente el cálculo del momento de
+  En el apéndice~\ref{chapt:ap-momento-fuerza} se repasa brevemente el cálculo del momento de
   una fuerza.
 
   Supongamos que elegimos el centro $O$ en el punto de contacto de la barra con el
-  suelo\footnotemark{}
-  \footnotetext{Elegimos este punto para que el momento de dos fuerzas, el de $\vvv{N}_1$ y
-    $\vvv{f}_r$ sea nulo y así reducimos el número de términos en las ecuaciones.}
+  suelo\footnotemark{}.
+  \footnotetext{Elegimos este punto para que el momento de dos fuerzas, $\vvv{N}_1$ y
+    $\vvv{f}_r$ sea nulo, reduciendo así el número de términos en la ecuación.}
     
     La suma de momentos alrededor del centro que hemos elegido es nula si la barra está en
     equilibrio. En este ejemplo calculamos los momentos multiplicando el módulo de cada
-    fuerza por la distancia desde el centro a la recta de acción a la fuerza
+    fuerza por la distancia desde el centro a la recta de acción a la fuerza.
     \[
       \sum_i \vvv{M}_i = \vvv{0}
     \]
@@ -278,15 +281,15 @@ Vamos a resolver el problema de dos formas:
     %\[
     %  \frac{1}{2}\,mg\cos\theta = N_2\sin\theta
     %\]
-    \begin{equation}\label{eq:mt-el-ej-momentos-n2}
+    \begin{equation}\label{eq:el-ej-momentos-n2}
       N_2 = \frac{1}{2} mg\cot\theta
     \end{equation}
-    Nos queda un sistema de tres ecuaciones, \eqref{eq:mt-el-ej-fuerzas-n2},
-    \eqref{eq:mt-el-ej-fuerzas-n1} y \eqref{eq:mt-el-ej-momentos-n2}, con tres incógnitas,
+    Nos queda un sistema de tres ecuaciones, \ref{eq:el-ej-fuerzas-n2},
+    \ref{eq:el-ej-fuerzas-n1} y \ref{eq:el-ej-momentos-n2}, con tres incógnitas,
     $N_1$, $N_2$ y $f_r$.
 
     A continuación, presentamos el resultado de las fuerzas incógnita obtenidas al
-    aplicar las leyes de Newton al sistema
+    aplicar las leyes de Newton al sistema.
     \begin{align}
       \label{eq:el-newton-n1}
       N_1 &= mg\\
@@ -304,7 +307,7 @@ Vamos a resolver el problema de dos formas:
       de la barra.
 
       Según la expresión del Principio aplicado a un sistema estático,
-      ecuación~\eqref{eq:el-PD-estatico}
+      ecuación~(\ref{eq:el-PD-estatico}).
       \[
         \sum_i \vvv{F}_i^{(a)} \cdot \delta\vvv{r}_i = 0
       \]
@@ -316,7 +319,6 @@ Vamos a resolver el problema de dos formas:
       en la esquina inferior izquierda, hasta el punto de aplicación del peso, y
       $\vvv{r}_r$ va desde el origen hasta el punto de aplicación de la fuerza de
       rozamiento en el suelo. Ver figura~\ref{fig:el-barra-PD-estatico}.
-
       \begin{figure}[ht]
         % Escala
         \def\scl{.79}
@@ -543,7 +545,8 @@ Vamos a resolver el problema de dos formas:
       
       En dicha figura hemos relacionado los vectores $\vvv{r}_p$ y $\vvv{r}_r$ a través de un vector
       $\vvv{d}$ que está sobre la barra y se dirige desde el punto de aplicación de la fuerza de
-      rozamiento hasta el del peso. La relación es
+      rozamiento hasta el del peso, esto es, su módulo es $|\vvv{d}|=L/2$.
+      Según esta definición de $\vvv{d}$, la relación entre $\vvv{r}_p$ y $\vvv{r}_r$ es
       \begin{equation}\label{eq:el-rp}
         \vvv{r}_p = \vvv{r}_r + \vvv{d}
       \end{equation}
@@ -562,9 +565,9 @@ Vamos a resolver el problema de dos formas:
         \vvv{d} &= (-x,y) = \left(-\frac{L}{2}\cos\theta, \frac{L}{2}\sin\theta\right)
       \end{align}
 
-      Calculamos $\vvv{r}_p$ utilizando la relación~\eqref{eq:el-rp} con ayuda de los
-      valores~\eqref{eq:el-rr} y~\eqref{eq:el-d}
-      \begin{equation}\label{eq:el-rp}
+      Calculamos $\vvv{r}_p$ utilizando la relación~(\ref{eq:el-rp}) con ayuda de los
+      valores~\ref{eq:el-rr} y~\ref{eq:el-d}
+      \begin{equation}\label{eq:el-rp-dos}
         \vvv{r}_p
         = \vvv{r}_r + \vvv{d}
         = \left(L\cos\theta,0\right) + \left(-\frac{L}{2}\cos\theta, \frac{L}{2}\sin\theta\right)
@@ -573,13 +576,13 @@ Vamos a resolver el problema de dos formas:
 
       La variación virtual de $\vvv{r}_p$ es
       \begin{align*}
-        \vvv{r}_p
+        \delta \vvv{r}_p
         &= \frac{\partial\vvv{r}_p}{\partial L}\,\cancelout{\delta L}
           + \frac{\partial\vvv{r}_p}{\partial\theta}\,\delta\theta
            = \frac{\partial\vvv{r}_p}{\partial\theta}\,\delta\theta
           = \left(-\frac{L}{2}\sin\theta, \frac{L}{2}\cos\theta\right)\,\delta\theta
         \\
-        \vvv{r}_r
+        \delta \vvv{r}_r
         &= \frac{\partial\vvv{r}_r}{\partial L}\,\cancelout{\delta L}
           + \frac{\partial\vvv{r}_r}{\partial\theta}\,\delta\theta
           = \frac{\partial\vvv{r}_r}{\partial\theta}\,\delta\theta
@@ -589,7 +592,7 @@ Vamos a resolver el problema de dos formas:
       respetando las ligaduras, no cambia su longitud.
 
       Con los valores calculados, aplicamos el Principio de D'Alembert a la
-      barra~\eqref{eq:el-dalembert-barra}
+      barra, ecuación (\ref{eq:el-dalembert-barra}).
       \[
         (0,-mg) \cdot \frac{L}{2} (-\sin\theta, \cos\theta)\,\delta\theta
         + (-f_r,0)\cdot (-L\sin\theta, 0)\,\delta\theta = 0
@@ -608,10 +611,9 @@ Vamos a resolver el problema de dos formas:
       \[
         f_r = \frac{mg}{2}\cot\theta
       \]
-      que coincide con el resultado~\eqref{eq:el-newton-fr}, que se obtuvo aplicando la segunda
+      que coincide con el resultado~\ref{eq:el-newton-fr}, que se obtuvo aplicando la segunda
       condición de equilibrio $\sum_i \vvv{M}_i = 0$, aunque sigue siendo necesario aplicar
-      la primera condición $\sum_i \vvv{F}_i = 0$ para obtener las fuerzas de ligadura, $\vvv{N}_1$
-      y $\vvv{N}_2$.
+      $\sum_i \vvv{F}_i = 0$ para obtener las fuerzas de ligadura, $\vvv{N}_1$ y $\vvv{N}_2$.
     \end{itemize}
 
     \subsection{Principio de D'Alembert dinámico}
@@ -634,7 +636,7 @@ Vamos a resolver el problema de dos formas:
     \]
     donde $\vvv{a}_i$ es la aceleración de la partícula $i$.
     
-    La ecuación~\eqref{eq:el-PD-dinamico} se puede reescribir
+    La ecuación~(\ref{eq:el-PD-dinamico}) se puede reescribir
     \[
       \sum_{i=1}^N \left(m\vvv{a}_i - \vvv{F}_i^{(a)}\right)\cdot \delta \vvv{r}_i = 0
     \]
@@ -1173,7 +1175,7 @@ Vamos a resolver el problema de dos formas:
       \caption{}
       \label{fig:el-barra2-fuerzas-par-perp}
     \end{subfigure}
-    \caption{En la figura $(a)$ se representan los ejes cartesianos $x$ e $y$, con centro en $O$,
+    \caption{En la figura $(a)$ se representan los ejes cartesianos $x$ e $y$, con centro en $O$
       y los ejes paralelos y perpendiculares a la barra, con centro $O'$ en el extremo superior de
       la barra.
       En $(b)$ se representan las fuerzas que actúan sobre la partícula y las componentes
@@ -1210,8 +1212,8 @@ Igualando componente a componente obtenemos $a_{x'}$ y $N$.
   N
   &= mg\cos\theta = 0,1\cdot 10\cdot\frac{1}{\sqrt{5}} = \frac{\sqrt{5}}{5}\,\si{\newton}
 \end{align}
-donde hemos utilizado las razones trigonométricas~\eqref{eq:el-barra2-sin}
-y~\eqref{eq:el-barra2-cos}, además de aproximar la aceleración de la gravedad en la superficie
+donde hemos utilizado las razones trigonométricas~\ref{eq:el-barra2-sin}
+y~\ref{eq:el-barra2-cos}, además de aproximar la aceleración de la gravedad en la superficie
 de la Tierra a $g\approx \SI{10}{\metre\per\square\second}$.
 
 Como $a_{x'}$ es la única componente de la aceleración, en valor absoluto es su módulo
@@ -1397,7 +1399,7 @@ Las componentes cartesianas de la aceleración en el sistema de referencia no in
   \vvv{a}\,
   \left\{
     \begin{array}{l}
-      \label{eq:el-barra2-newton-a}
+      \label{eq:el-barra2-newton-a-dos}
       a_x = g\sin\theta\cos\theta = 10\frac{2}{\sqrt{5}}\frac{1}{\sqrt{5}}
       = \SI{4}{\metre\per\square\second}\\
       a_y = -g\sin^2\theta = -10\,\left(\frac{2}{\sqrt{5}}\right)^2
@@ -1660,7 +1662,7 @@ obtenemos
     \delta\vvv{r} = (\delta x, \delta y) = (1, -2)\,\delta q
   \end{equation}
 
-  Sustituyendo el resultado~\eqref{eq:el-barra2-dr} en la ecuación~\eqref{eq:el-barra2-PD-temp}
+  Sustituyendo el resultado~(\ref{eq:el-barra2-dr}) en la ecuación~(\ref{eq:el-barra2-PD-temp})
   \[
     (a_x,a_y+g)\cdot (1,-2)\,\delta q = 0
   \]
@@ -1674,12 +1676,12 @@ obtenemos
 
   Este resultado nos da la relación entre las componentes de la aceleración $a_x$ y $a_y$, pero no
   parece coincidir con los que se obtuvo aplicando las leyes de Newton
-  \eqref{eq:el-barra2-newton-a} y \eqref{eq:el-barra2-newton-tiempo}, pero sigamos desarrollando
+  (\ref{eq:el-barra2-newton-a}) y (\ref{eq:el-barra2-newton-tiempo}), pero sigamos desarrollando
   las expresiones que tenemos.
-  Utilizaremos la parametrización~\eqref{eq:el-barra2-parametrizacion-r} para obtener las
+  Utilizaremos la parametrización~(\ref{eq:el-barra2-parametrizacion-r}) para obtener las
   componentes de la aceleración en función del parámetro, derivando dos veces con respecto del
   tiempo
-  \begin{equation}\label{eq:el-barra2-r.}
+  \begin{equation}\label{eq:el-barra2-r-dot}
     \vvv{v} = \vvv{\dot{r}}\,
     \left\{
       \begin{array}{l}
@@ -1688,7 +1690,7 @@ obtenemos
       \end{array}
     \right.
   \end{equation}
-  \begin{equation}\label{eq:el-barra2-r..}
+  \begin{equation}\label{eq:el-barra2-r-dotdos}
     \vvv{a} = \vvv{\ddot{r}}\,
     \left\{
       \begin{array}{l}
@@ -1698,12 +1700,12 @@ obtenemos
     \right.
   \end{equation}
 
-  Reescribimos~\eqref{eq:el-barra2-resultado-temp}
+  Reescribimos~(\ref{eq:el-barra2-resultado-temp})
   \[
     \ddot{q} - 2(-2\ddot{q} + g) = 0
   \]
   de donde obtenemos
-  \begin{equation}\label{eq:el-barra2-q..}
+  \begin{equation}\label{eq:el-barra2-q-dotdot}
     \ddot{q} = \dfrac{2}{5}\,g = \dfrac{2}{5}\,10 = \SI{4}{\metre\per\square\second}
   \end{equation}
   
@@ -1718,11 +1720,11 @@ obtenemos
       \end{array}
     \right.
   \end{equation}
-  que coinciden con las que se obtuvo en~\eqref{eq:el-barra2-newton-a}, aplicando las leyes de
+  que coinciden con las que se obtuvo en~(\ref{eq:el-barra2-newton-a}), aplicando las leyes de
   Newton.
 
   Ahora nos podría interesar cómo varía el parámetro $q$ con el tiempo. Para averiguarlo,
-  integramos~\eqref{eq:el-barra2-q..}
+  integramos~(\ref{eq:el-barra2-q-dotdot})
   \[
     \int \ddot{q}(t)\,dt = \int 4\,dt
   \]
@@ -1742,7 +1744,7 @@ obtenemos
   \end{equation}
 
   Necesitamos calcular las dos constantes de integración, $C_1$ y $C_2$.
-  Sabemos de~\eqref{eq:el-barra2-parametrizacion-r} que $x=q$, y como $x_0 = x(0) = 0$,
+  Sabemos de~(\ref{eq:el-barra2-parametrizacion-r}) que $x=q$, y como $x_0 = x(0) = 0$,
   por tanto, $q(0)$ también debe anularse
   \[
     q(0) = C_2
@@ -1750,7 +1752,7 @@ obtenemos
     C_2 = 0
   \]
 
-  Así, la expresión~\eqref{eq:el-barra2-q-c1-c2} se convierte en
+  Así, la expresión~(\ref{eq:el-barra2-q-c1-c2}) se convierte en
   \[
     q(t) = 2t^2 + C_1 t
   \]
@@ -1761,7 +1763,7 @@ obtenemos
   \]
   
   Sabemos que la partícula estaba inicialmente en reposo, $v_x=v_y=0$. Ahora nos fijamos
-  en~\eqref{eq:el-barra2-r.} y deducimos que $\dot{q}(0) = 0$, y por tanto
+  en~(\ref{eq:el-barra2-r-dot}) y deducimos que $\dot{q}(0) = 0$, y por tanto
   \[
     \dot{q}(0) = C_1 = 0
   \]
@@ -1770,7 +1772,7 @@ obtenemos
   \begin{equation}
     q(t) = 2t^2
   \end{equation}
-  y de acuerdo con~\eqref{eq:el-barra2-parametrizacion-r}
+  y de acuerdo con~(\ref{eq:el-barra2-parametrizacion-r})
   \begin{equation}\label{eq:el-barra2-r-t}
     \vvv{r}\,
     \left\{
@@ -1782,9 +1784,9 @@ obtenemos
   \end{equation}
   
   Cuando la partícula llegue al final de la barra, sus coordenadas serán $B(1,0)$,
-  por tanto $y = 0$, de donde se deduce de~\eqref{eq:el-barra2-r-t} que
+  por tanto $y = 0$, de donde se deduce de~(\ref{eq:el-barra2-r-t}) que
   $0 = -4t^2 + 2$ y $t = 1/\sqrt{2}\,\si{\second}$, lo que coincide con el tiempo de
-  caída~\eqref{eq:el-barra2-newton-tiempo} de la partícula a través de las leyes de Newton.
+  caída~(\ref{eq:el-barra2-newton-tiempo}) de la partícula a través de las leyes de Newton.
 \end{itemize}
 
 Conforme los sistemas se vuelven más complicados (con más ligaduras), la aplicación de las leyes de
@@ -1810,7 +1812,7 @@ las siguientes consideraciones:
   \end{equation}
   
   El que la posición no dependa de $\dot{q}$ implicará que la derivada parcial de $\vvv{r}$ o, de
-  cualquier derivada de ésta, con respecto de $\dot{q}$ vale cero. Así podríamos escribir
+  cualquier derivada de esta, con respecto de $\dot{q}$ vale cero. Así podríamos escribir
   \begin{equation}
     \frac{\partial\vvv{r}}{\partial\dot{q}} = 0
     ;\hspace{1em}
@@ -1956,7 +1958,7 @@ cuatro identidades que necesitaremos en algún momento del desarrollo:
 \end{align*}
 donde hemos tenido en cuenta que $\dot{q}$ es independiente de $q$, por lo que puede entrar en la
 derivada parcial de $q$ y, en el último paso, hemos aplicado la primera
-identidad~\eqref{eq:el-primera-identidad}.
+identidad~(\ref{eq:el-primera-identidad}).
 
 \item Cuarta identidad
   \begin{equation}\label{eq:el-cuarta-identidad}
@@ -1993,7 +1995,7 @@ identidad~\eqref{eq:el-primera-identidad}.
 
 \subsubsection{Desarrollo}
 Partimos del Principio de D'Alembert dinámico
-\begin{equation}\label{eq:el-PD-dinamico}
+\begin{equation}\label{eq:el-PD-dinamico-dos}
   \sum_{i=1}^N \left(\dot{\vvv{p}}_i - \vvv{F}_i^{(a)}\right)\cdot \delta\vvv{r}_i
 \end{equation}
 
@@ -2054,8 +2056,8 @@ Escribimos la expresión tal y como la queremos obtener y la desarrollamos
     + m\vvv{v}\cdot\frac{d}{dt}\left(\frac{\partial\vvv{r}}{\partial q}\right)
 \end{align*}
 
-Ahora despejamos y tenemos en cuenta~\eqref{eq:el-segunda-identidad},
-\eqref{eq:el-tercera-identidad} y~\eqref{eq:el-cuarta-identidad}
+Ahora despejamos y tenemos en cuenta~(\ref{eq:el-segunda-identidad}),
+(\ref{eq:el-tercera-identidad}) y~(\ref{eq:el-cuarta-identidad})
 \begin{align*}
   \frac{d}{dt}\left(m\vvv{v}\right)\cdot\frac{\partial\vvv{r}}{\partial q}
   &= \frac{d}{dt}\left[m\vvv{v}\cdot\frac{\partial\vvv{r}}{\partial q}\right]
@@ -2073,7 +2075,7 @@ Llamando $T$ a la energía cinética
   - \frac{\partial T}{\partial q}
 \]
 
-Recuperamos la fórmula~\eqref{eq:el-EL-temp01} sustituyendo el resultado anterior
+Recuperamos la fórmula~\ref{eq:el-EL-temp01} sustituyendo el resultado anterior
 \[
   \left[\frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}}\right)
     - \frac{\partial T}{\partial q}\right]\,\delta q
@@ -2106,7 +2108,7 @@ de un potencial
   \right)
 \]
 
-Calculamos el segundo miembro de la primera versión~\eqref{eq:el-EL-primera-version}
+Calculamos el segundo miembro de la primera versión~\ref{eq:el-EL-primera-version}
 de las ecuaciones de Euler-Lagrange
 \begin{align*}
   \vvv{F}\cdot\frac{\partial\vvv{r}}{\partial q}
@@ -2125,7 +2127,7 @@ de las ecuaciones de Euler-Lagrange
   &= -\frac{\partial V}{\partial q}
 \end{align*}
 
-Sustituimos en~\label{eq:el-EL-primera-version}
+Sustituimos en~(\ref{eq:el-EL-primera-version})
 \[
   \frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}}\right)
   - \frac{\partial T}{\partial q}
@@ -2148,7 +2150,7 @@ velocidad $\dot{q}$. Por tanto
   \frac{\partial V}{\partial\dot{q}} = 0
 \]
 
-Por tanto, podemos añadirlo a~\eqref{eq:el-EL-temp02}
+Por tanto, podemos añadirlo a~\ref{eq:el-EL-temp02}
 \[
   \frac{d}{dt}\left(\frac{\partial (T-V)}{\partial\dot{q}}\right)
   - \frac{\partial(T-V)}{\partial q}
@@ -2202,7 +2204,7 @@ aspectos que pueden ser útiles en problemas más complicados.
 También se adjuntará un pequeño programa en $MATLAB$ para ver como se movería el sistema.
 
 El sistema consiste en una masa $M$ que se puede mover horizontalmente, sin rozamiento,
-a lo largo del eje $x$. Ésta, a su vez está unida a otra masa $m$ por medio de una varilla
+a lo largo del eje $x$. Esta a su vez, está unida a otra masa $m$ por medio de una varilla
 rígida y sin masa, de longitud $L$. La varilla puede formar un ángulo $\theta$ variable
 con respecto a la vertical. En la figura~\ref{fig:el-EL-pendulo-Mm} se puede ver un esquema del
 sistema.
@@ -2548,8 +2550,8 @@ Resolvemos las ecuaciones de Euler-Lagrange:
   \end{equation}
 \end{itemize}
 
-Vemos que las dos ecuaciones del movimiento, \eqref{eq:el-EL-pendulo-Mm-ecuacion-theta}
-y \eqref{eq:el-EL-pendulo-Mm-ecuacion-theta} están acopladas, lo que significa que en
+Vemos que las dos ecuaciones del movimiento, \ref{eq:el-EL-pendulo-Mm-ecuacion-theta}
+y \ref{eq:el-EL-pendulo-Mm-ecuacion-theta} están acopladas, lo que significa que en
 las dos se encuentran las variables $x$ y $\theta$ o sus derivadas temporales.
 
 Cuando las ecuaciones están acopladas no se pueden resolver la mayor parte de las veces.
