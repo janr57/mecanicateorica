@@ -1,0 +1,438 @@
+\chapter{Momento de una fuerza}
+\label{chapt:mt-ap-momento-fuerza}
+
+Vamos a explicar muy brevemente cómo calcular el momento de una fuerza $\vvv{F}$.
+  Primero hemos de elegir un punto arbitrario llamado centro, $O$, y denotaremos por
+  $\vvv{r}$ al vector que va del centro al punto de aplicación de la fuerza,
+  ver figura~\ref{fig:el-ap-rF}.
+
+  El módulo del momento con respecto al centro elegido es el módulo de un producto vectorial
+  \begin{equation}\label{eq:mt-ap-modulo-momento-angulo}
+    |\vvv{M}| = |\vvv{r}\times\vvv{F}| = |\vvv{r}| |\vvv{F}| \sin\alpha
+  \end{equation}
+  donde $\alpha$ es el ángulo que forman los vectores $\vvv{r}$ y $\vvv{F}$. Para visualizar
+  $\alpha$ basta con fijarse en el ángulo que forma la recta de acción de $\vvv{r}$ cuando
+  sobrepasa al punto de aplicación de la fuerza, como se puede apreciar en la
+  figura~\ref{fig:el-ap-rF-alfa}.
+
+  \begin{figure}[ht]
+    \def\scl{1.05}
+    %
+    \pgfmathsetmacro{\XFUERZA}{1.8}
+    \pgfmathsetmacro{\YFUERZA}{.8}
+    \pgfmathsetmacro{\LFUERZA}{1.8}
+    \pgfmathsetmacro{\ANGFUERZA}{340}
+    % Fondo
+    \pgfmathsetmacro{\BGTOP}{1.8}
+    \pgfmathsetmacro{\BGBOTTOM}{-.8}
+    \pgfmathsetmacro{\BGLEFT}{-.8}
+    \pgfmathsetmacro{\BGRIGHT}{4.1}    
+    %
+    \centering
+    \begin{subfigure}[b]{.45\textwidth}
+    %
+    %\centering
+    \begin{tikzpicture}[%
+      scale=\scl,
+      baseline,
+      every node/.style={black,font=\small},
+      angulo/.style={draw=green!50!black, fill=green!20},
+      r/.style={-{Latex[round, width=4pt]}, shorten >=1pt, line width=1pt, black},
+      F/.style={-{Latex[round, width=4pt]}, line width=1pt, green!60!black},
+      punto fuerza/.style={fill=green!60!black, draw=green!60!black, radius=.8pt},
+      centro/.style={fill=black, draw=black, radius=.8pt},
+      punto/.style={fill=black, draw=black, radius=.8pt},
+      background/.style={%
+        line width=\bgborderwidth,
+        draw=\bgbordercolor,
+        fill=\bgcolor,
+      },
+      ]
+      % COORDENADAS
+      \coordinate (O) at (0,0);
+      \coordinate (OF) at (\XFUERZA,\YFUERZA);
+      % 
+      \coordinate (btop) at (0,\BGTOP);
+      \coordinate (bbottom) at (0,\BGBOTTOM);
+      \coordinate (bleft) at (\BGLEFT,0);
+      \coordinate (bright) at (\BGRIGHT,0);
+      % DIBUJO
+      % Vector posición
+      \draw[r] (O) -- node[above] {$\vvv{r}$} (OF);
+      % Centro
+      \filldraw[centro] (O) circle;
+      \node[below left] at (O) {$O$};
+      % Fuerza
+      \draw[F]
+      (OF) -- node[above right=-2pt and -1pt,,green!60!black] {$\vvv{F}$} +(\ANGFUERZA:\LFUERZA);
+      \filldraw[punto fuerza] (OF) circle;
+       FONDO AMARILLO
+      \begin{scope}[on background layer]
+        \node [background, fit= (bleft) (bright) (btop) (bbottom)] {};
+      \end{scope}
+    \end{tikzpicture}
+    \caption{Para calcular el momento de una fuerza con respecto de un punto llamado
+      \emph{centro} ($O$), se comienza trazando el vector $\vvv{r}$ que va desde el centro
+      hasta el punto de aplicación de la fuerza.}
+    \label{fig:el-ap-rF}
+  \end{subfigure}
+  \hspace{2em}
+  \begin{subfigure}[b]{.45\textwidth}
+    % 
+    \pgfmathsetmacro{\LFUERZA}{1.8}
+    \pgfmathsetmacro{\ANGFUERZA}{-20}
+    %
+    \pgfmathsetmacro{\ANGRECTA}{25}
+    \pgfmathsetmacro{\LR}{2}
+    \pgfmathsetmacro{\LRECTA}{1.4}
+    %
+    \pgfmathsetmacro{\RADIOANGULO}{2}
+    %
+    \pgfmathsetmacro{\LRECTA}{1.4}
+    % Fondo
+    \pgfmathsetmacro{\BGTOP}{1.8}
+    \pgfmathsetmacro{\BGBOTTOM}{-.8}
+    \pgfmathsetmacro{\BGLEFT}{-.8}
+    \pgfmathsetmacro{\BGRIGHT}{4.1}    
+    %
+    %\centering
+    \begin{tikzpicture}[%
+      scale=\scl,
+      baseline,
+      every node/.style={black,font=\small},
+      angulo/.style={{Latex[round,width=4pt]}-,draw=green!50!black, fill=green!20},
+      recta/.style={ultra thin, black!30},
+      r/.style={-{Latex[round, width=4pt]}, shorten >=1pt, line width=1pt, black},
+      F/.style={-{Latex[round, width=4pt]}, line width=1pt, green!60!black},
+      punto fuerza/.style={fill=green!60!black, draw=green!60!black, radius=.8pt},
+      centro/.style={fill=black, draw=black, radius=.8pt},
+      punto/.style={fill=black, draw=black, radius=.8pt},
+      background/.style={%
+        line width=\bgborderwidth,
+        draw=\bgbordercolor,
+        fill=\bgcolor,
+      },
+      ]
+      % COORDENADAS
+      \coordinate (O) at (0,0);
+      %\coordinate (OF) at (\XFUERZA,\YFUERZA);
+      \coordinate (OF) at ($(O) + (\ANGRECTA:\LR)$);
+      % 
+      \coordinate (btop) at (0,\BGTOP);
+      \coordinate (bbottom) at (0,\BGBOTTOM);
+      \coordinate (bleft) at (\BGLEFT,0);
+      \coordinate (bright) at (\BGRIGHT,0);
+      % DIBUJO
+      % Ángulo
+      \filldraw[angulo] (OF) -- +(\ANGFUERZA:\RADIOANGULO em)
+      arc [start angle=\ANGFUERZA, end angle=\ANGRECTA, radius=\RADIOANGULO em] -- cycle;
+      \node[above right=-5.1pt and 7pt] at (OF) {$\alpha$};
+      \draw[angulo] ($(OF) + (\ANGFUERZA:\RADIOANGULO em)$)
+       arc [start angle=\ANGFUERZA, end angle=\ANGRECTA,  radius=\RADIOANGULO em];
+      % Recta de acción
+      \draw[recta] (OF) -- +(\ANGRECTA:\LRECTA);
+      % Vector posición
+      \draw[r] (O) -- node[above] {$\vvv{r}$} (OF);
+      % Centro
+      \filldraw[centro] (O) circle;
+      \node[below left] at (O) {$O$};
+      % Fuerza
+      \draw[F] (OF) -- node[below,green!60!black] {$\vvv{F}$} +(\ANGFUERZA:\LFUERZA);
+      \filldraw[punto fuerza] (OF) circle;
+      % FONDO AMARILLO
+      \begin{scope}[on background layer]
+        \node [background, fit= (bleft) (bright) (btop) (bbottom)] {};
+      \end{scope}
+    \end{tikzpicture}
+    \caption{El módulo del momento de la fuerza se puede hallar multiplicando $|\vvv{r}|$
+      por $|\vvv{F}|$ y por $\sin\alpha$. El ángulo es útil para hallar el sentido del momento
+      cuando las fuerzas son coplanares.}
+    \label{fig:el-ap-rF-alfa}
+  \end{subfigure}
+  \caption{}
+\end{figure}
+
+Para hallar el sentido del momento podemos fijarnos en el del ángulo de giro desde $\vvv{r}$ hasta
+$\vvv{F}$. En el caso de la fuerza de la figura se observa que el sentido es negativo (horario),
+por lo que el momento es perpendicular al plano formado por $\vvv{r}$ y $\vvv{F}$ y está
+dirigido hacia dentro.
+
+Cuando todas las fuerzas del sistema sean coplanares nos bastaría el signo del ángulo para
+obtener el sentido del momento de cada fuerza y poder componer momentos.
+
+%Por supuesto, lo anterior sirve si conocemos $|\vvv{r}|$, $|\vvv{F}|$ y el ángulo $\alpha$ que
+%forman estos dos vectores.
+%Pero, dependiendo de los datos que tengamos, podría ser más cómodo descomponer la fuerza en una
+%componente paralela a $\vvv{r}$ y otra perpendicular
+En la figura~\ref{fig:el-ap-r-FF} se ha descompuesto la fuerza $\vvv{F}$ en dos componentes, una
+paralela y otra perpendicular al vector $\vvv{r}$
+\[
+  \vvv{F} = \vvv{F}_\parallel + \vvv{F}_\perp
+\]
+
+\begin{figure}[ht]
+  \def\scl{1.05}
+  % 
+  \centering
+  \begin{subfigure}[b]{.45\textwidth}
+    % 
+    \pgfmathsetmacro{\LFUERZA}{1.8}
+    \pgfmathsetmacro{\ANGFUERZA}{-20}
+    % 
+    \pgfmathsetmacro{\ANGRECTA}{25}
+    \pgfmathsetmacro{\LR}{2}
+    \pgfmathsetmacro{\LRECTA}{1.4}
+    % 
+    \pgfmathsetmacro{\RADIOANGULO}{2}
+    %
+    \pgfmathsetmacro{\LRECTA}{1.6}
+    % Componentes paralela y perpendicular de la fuerza
+    \pgfmathsetmacro{\FPARALELA}{\LFUERZA * cos(\ANGFUERZA-\ANGRECTA)}
+    \pgfmathsetmacro{\FPERPENDICULAR}{\LFUERZA * sin(\ANGFUERZA-\ANGRECTA)}
+    % Fondo
+    \pgfmathsetmacro{\BGTOP}{1.8}
+    \pgfmathsetmacro{\BGBOTTOM}{-.8}
+    \pgfmathsetmacro{\BGLEFT}{-.8}
+    \pgfmathsetmacro{\BGRIGHT}{4.1}    
+    %
+    %\centering
+    \begin{tikzpicture}[%
+      scale=\scl,
+      baseline,
+      every node/.style={black,font=\small},
+      angulo/.style={{Latex[round,width=3pt]}-, shorten >=2pt, draw=green!50!black, fill=green!20},
+      angulo auxiliar/.style={{Latex[round,width=3pt]}-, shorten >=2pt, draw=black!50, fill=black!10},
+      recta/.style={ultra thin, black!30},
+      r/.style={-{Latex[round, width=4pt]}, shorten >=1pt, line width=1pt, black},
+      fuerza/.style={-{Latex[round, width=4pt]}, line width=1pt, black!30},
+      componente fuerza/.style={-{Latex[round, width=4pt]}, line width=1pt, green!60!black},
+      linea auxiliar/.style={ultra thin, light gray},
+      punto fuerza/.style={fill=green!60!black, draw=green!60!black, radius=.8pt},
+      centro/.style={fill=black, draw=black, radius=.8pt},
+      punto/.style={fill=black, draw=black, radius=.8pt},
+      background/.style={%
+        line width=\bgborderwidth,
+        draw=\bgbordercolor,
+        fill=\bgcolor,
+      },
+      ]
+      % COORDENADAS
+      \coordinate (O) at (0,0);
+      % \coordinate (OF) at (\XFUERZA,\YFUERZA);
+      % Origen de la fuerza
+      \coordinate (OF) at ($(O) + (\ANGRECTA:\LR)$);
+      % Extremo de la fuerza
+      \path (OF) -- +(\ANGFUERZA:\LFUERZA) coordinate (F);
+      % 
+      \coordinate (btop) at (0,\BGTOP);
+      \coordinate (bbottom) at (0,\BGBOTTOM);
+      \coordinate (bleft) at (\BGLEFT,0);
+      \coordinate (bright) at (\BGRIGHT,0);
+      % Semirrecta paralela a la recta de acción
+      \path (OF) -- +(\ANGRECTA:\LRECTA) coordinate (rparalela);
+      % Semirrecta perpendicular a la anterior
+      \path (OF) -- +(\ANGRECTA-90:\LRECTA) coordinate (rperpendicular);
+      % Componente paralela de la fuerza
+      \path (OF) -- +(\ANGRECTA:\FPARALELA) coordinate (Fparalela);
+      % Componente perpendicular de la fuerza
+      \path (OF) -- +(\ANGRECTA-90:\FPARALELA) coordinate (Fperpendicular);
+      % DIBUJO
+      % Ángulo
+      \filldraw[angulo auxiliar] (OF) -- +(\ANGFUERZA:\RADIOANGULO em)
+      arc [start angle=\ANGFUERZA, end angle=\ANGRECTA, radius=\RADIOANGULO em] -- cycle;
+      \node[above right=-5.1pt and 7pt] at (OF) {\textcolor{black!60}{$\alpha$}};
+      \draw[angulo auxiliar] ($(OF) + (\ANGFUERZA:\RADIOANGULO em)$)
+       arc [start angle=\ANGFUERZA, end angle=\ANGRECTA,  radius=\RADIOANGULO em];
+      % Recta paralela
+      \draw[recta] (OF) -- (rparalela);
+      % Recta perpendicular
+      \draw[recta] (OF) -- (rperpendicular);
+      % Vector posición
+      \draw[r] (O) -- node[above] {$\vvv{r}$} (OF);
+      % Centro
+      \filldraw[centro] (O) circle;
+      \node[below left] at (O) {$O$};
+      % Línea auxiliar para componente paralela de la fuerza
+      \draw[ultra thin, lightgray] (F) -- (Fparalela);
+      % Línea auxiliar para componente perpendicular de la fuerza
+      \draw[ultra thin, lightgray] (F) -- (Fperpendicular);
+      % Fuerza
+      \draw[fuerza] (OF) -- node[below left=1pt and -10pt,black!30] {$\vvv{F}$} (F);
+      % Componente paralela de la fuerza
+      \draw[componente fuerza]
+      (OF) -- node[above left=-2pt and -3pt, green!60!black] {$\vvv{F}_\parallel$} (Fparalela);
+      % Componente perpendicular de la fuerza
+      \draw[componente fuerza]
+      (OF) -- node[below left=-2pt and -3pt, green!60!black] {$\vvv{F}_\perp$} (Fperpendicular);
+      % Punto de aplicación de la fuerza
+      \filldraw[punto fuerza] (OF) circle;
+      % FONDO AMARILLO
+      \begin{scope}[on background layer]
+        \node [background, fit= (bleft) (bright) (btop) (bbottom)] {};
+      \end{scope}
+    \end{tikzpicture}
+    \caption{$|\vvv{M}| = |\vvv{r}|\, |\vvv{F_\perp}|$}
+    \label{fig:el-ap-r-FF}
+  \end{subfigure}
+  \hspace{2em}
+  \begin{subfigure}[b]{.45\textwidth}
+    % 
+    \pgfmathsetmacro{\LFUERZA}{1.8}
+    \pgfmathsetmacro{\ANGFUERZA}{-20}
+    % 
+    \pgfmathsetmacro{\ANGRECTA}{25}
+    \pgfmathsetmacro{\LR}{2}
+    \pgfmathsetmacro{\LRECTA}{1.4}
+    %
+    \pgfmathsetmacro{\RADIOANGULO}{2}
+    %
+    \pgfmathsetmacro{\LRECTAPARALELA}{2.1}
+    \pgfmathsetmacro{\LRECTAPERPENDICULAR}{1.7}
+    % Componentes paralela y perpendicular de r
+    \pgfmathsetmacro{\RPERPENDICULAR}{\LR * cos(\ANGFUERZA-\ANGRECTA)}
+
+    % Fondo
+    \pgfmathsetmacro{\BGTOP}{1.8}
+    \pgfmathsetmacro{\BGBOTTOM}{-.8}
+    \pgfmathsetmacro{\BGLEFT}{-.8}
+    \pgfmathsetmacro{\BGRIGHT}{4.1}    
+    %
+    %\centering
+    \begin{tikzpicture}[%
+      scale=\scl,
+      baseline,
+      every node/.style={black,font=\small},
+      angulo/.style={{Latex[round,width=3pt]}-, shorten >=2pt, draw=green!50!black, fill=green!20},
+      angulo auxiliar/.style={{Latex[round,width=3pt]}-, shorten >=2pt, draw=black!50, fill=black!10},
+      recta/.style={ultra thin, black!30},
+      r/.style={-{Latex[round, width=4pt]}, shorten >=1pt, line width=1pt, black!30},
+      r perpendicular/.style={-{Latex[round, width=4pt]}, shorten >=1pt, line width=1pt, black},
+      fuerza/.style={-{Latex[round, width=4pt]}, line width=1pt, green!60!black},
+      linea auxiliar/.style={ultra thin, lightgray},
+      punto fuerza/.style={fill=green!60!black, draw=green!60!black, radius=.8pt},
+      centro/.style={fill=black, draw=black, radius=.8pt},
+      punto/.style={fill=black, draw=black, radius=.8pt},
+      background/.style={%
+        line width=\bgborderwidth,
+        draw=\bgbordercolor,
+        fill=\bgcolor,
+      },
+      ]
+      % COORDENADAS
+      \coordinate (O) at (0,0);
+      % \coordinate (OF) at (\XFUERZA,\YFUERZA);
+      % Origen de la fuerza
+      \coordinate (OF) at ($(O) + (\ANGRECTA:\LR)$);
+      % Extremo de la fuerza
+      \path (OF) -- +(\ANGFUERZA:\LFUERZA) coordinate (F);
+      %
+      \coordinate (btop) at (0,\BGTOP);
+      \coordinate (bbottom) at (0,\BGBOTTOM);
+      \coordinate (bleft) at (\BGLEFT,0);
+      \coordinate (bright) at (\BGRIGHT,0);
+      % Semirrecta paralela a la fuerza
+      \path (OF) -- +(180+\ANGFUERZA:\LRECTAPARALELA) coordinate (Fparalela);
+      % Semirrecta perpendicular a la anterior
+      \path (O) -- +(\ANGFUERZA+90:\LRECTAPERPENDICULAR) coordinate (Fperpendicular);
+      % DIBUJO
+      % Ángulo
+      \filldraw[angulo auxiliar] (OF) -- +(\ANGFUERZA:\RADIOANGULO em)
+      arc [start angle=\ANGFUERZA, end angle=\ANGRECTA, radius=\RADIOANGULO em] -- cycle;
+      \node[above right=-5.1pt and 7pt] at (OF) {\textcolor{black!60}{$\alpha$}};
+      \draw[angulo auxiliar] ($(OF) + (\ANGFUERZA:\RADIOANGULO em)$)
+       arc [start angle=\ANGFUERZA, end angle=\ANGRECTA,  radius=\RADIOANGULO em];
+      % Vector posición
+      \draw[r] (O) -- node[below,black!30] {$\vvv{r}$} (OF);
+      % Centro
+      \filldraw[centro] (O) circle;
+      \node[below left] at (O) {$O$};
+      % Recta de acción de r
+      \draw[recta] (OF) -- +(\ANGRECTA:\LRECTA);
+      % Recta de acción de la fuerza
+      \draw[linea auxiliar] (OF) -- (Fparalela);
+      % Perpendicular que pasa por O
+      \draw[linea auxiliar] (O) -- (Fperpendicular);
+      % Componente de r perpendicular a la fuerza
+      \draw[r perpendicular] (O) -- node[left] {$\vvv{r}_\perp$} (\ANGFUERZA + 90:\RPERPENDICULAR);
+      % Fuerza
+      \draw[fuerza] (OF) -- node[below left=1pt and -10pt,green!60!black] {$\vvv{F}$} (F);
+      % Punto de aplicación de la fuerza
+      \filldraw[punto fuerza] (OF) circle;
+      % FONDO AMARILLO
+      \begin{scope}[on background layer]
+        \node [background, fit= (bleft) (bright) (btop) (bbottom)] {};
+      \end{scope}
+    \end{tikzpicture}
+    \caption{$|\vvv{M}| = |\vvv{r_\perp}|\, |\vvv{F}|$}
+    %\label{fig:el-ap-rF-alfa}
+  \end{subfigure}
+  \caption{En esta figura se presentan dos formas equivalentes para calcular el módulo  del momento
+    de una fuerza, dependiendo de los datos que se conozcan de la geometría del sistema. El ángulo
+    sirve para calcular el sentido del momento de la fuerza cuando las fuerzas del problema sean
+    coplanares.}
+\end{figure}
+
+Se puede reescrbir la ecuación~\ref{eq:mt-ap-modulo-momento-angulo}, pues
+$|\vvv{F}|\sin\alpha = |\vvv{F}_\perp|$
+\begin{equation}\label{eq:mt-ap-modulo-F-perp}
+  |\vvv{M}| = |\vvv{r}|\,|\vvv{F}|\,\sin\alpha = |\vvv{r}|\,|\vvv{F}_\perp|
+\end{equation}
+
+Lo interesante de esto es que la fuerza $\vvv{F}_\parallel$ paralela a $\vvv{r}$ no genera momento,
+y por eso no interviene en la expresión anterior. Esta afirmación se puede comprobar intuitivamente
+si suponemos que $\vvv{r}$ es una barra rígida que puede girar alrededor del punto fijo $O$;
+entonces la componente paralela no haría girar la barra.
+Por tanto sólo necesitaríamos conocer la componente de la fuerza perpendicular a $\vvv{r}$.
+Esto se puede expresar con algo más de detalle
+\begin{align*}
+  |\vvv{M}
+  &= |\vvv{r}\times\vvv{F}|
+    = |\vvv{r}\times(\vvv{F}_\parallel + \vvv{F}_\perp)|
+    = |\vvv{r}\times\vvv{F}_\parallel + \vvv{r}\times\vvv{F}_\perp|
+    = |\vvv{0} + \vvv{r}\times\vvv{F}_\perp|
+    = |\vvv{r}\times\vvv{F}_\perp|\\
+  &= |\vvv{r}| |\vvv{F}_\perp| \sin\pi/2
+    = |\vvv{r}| |\vvv{F}_\perp|
+\end{align*}
+
+También, podríamos reorganizar de otro modo los factores de la
+ecuación~\ref{eq:mt-ap-modulo-momento-angulo}
+\begin{equation}\label{eq:mt-ap-modulo-r-perp}
+  |\vvv{M}|
+  = |\vvv{r}|\,|\vvv{F}|\,\sin\alpha
+  = |\vvv{F}|\,|\vvv{r}|\,\sin\alpha
+  = |\vvv{F}|\,|\vvv{r}_\perp|
+\end{equation}
+lo que es útil en aquellos ejercicios en los que sea más fácil calcular la
+componente perpendicular de $\vvv{r}$ a la recta de acción de $\vvv{F}$.
+
+Otra forma de calcular el momento de la fuerza es
+\begin{equation}\label{eq:mt-ap-momento-determinante}
+  \vvv{M}
+  = \vvv{r}\times\vvv{F}
+  =
+  \begin{vNiceMatrix}
+    \uvec{\i} & \uvec{\j} & \xhat{k}\\
+    x & y & z\\
+    F_x & F_y & F_z\\
+  \end{vNiceMatrix}
+\end{equation}
+que es útil si conocemos las componentes cartesianas de los vectores
+$\vvv{r} = x\uvec{\i} + y\uvec{\j} + z\xhat{k}$ y
+$\vvv{F} = F_x\uvec{\i} + F_y\uvec{\j} + F_z\xhat{k}$.
+
+
+
+
+
+
+
+
+
+%%% Local Variables:
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "../mecanicateorica.tex"
+%%% End:
+

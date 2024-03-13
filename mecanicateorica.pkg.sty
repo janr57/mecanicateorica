@@ -1,0 +1,141 @@
+% mecanicateorica.pkg.sty
+%
+% Copyright (C) 2019 José A. Navarro Ramón <josea.navarro1@gmail.com>
+%
+% --------------------------------------------------------
+% ----------- PACKAGES & CONFIGURATION -------------------
+% --------------------------------------------------------
+
+% IMPORTANT: 'geometry' doesn't detect 'luatex' by default
+% and doesn't inform to the pdf reader about document size.
+\RequirePackage{luatex85}
+% --------------------------------------------------------
+% Basic packages
+%\RequirePackage{upgreek}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+
+\RequirePackage{lualatex-math}
+
+\RequirePackage{fontspec}
+\RequirePackage[math-style=TeX]{unicode-math}
+\defaultfontfeatures{Ligatures=TeX}
+\RequirePackage{lualatex-math}
+% --------------------------------------------------------
+% Languages
+\RequirePackage{polyglossia}
+\setmainlanguage{spanish}
+% --------------------------------------------------------
+% Lua code within source
+\RequirePackage{luacode}
+% --------------------------------------------------------
+% Headers and footers
+% Don't use \pagestyle{fancy} until document is paginated.
+\RequirePackage{fancyhdr}
+% --------------------------------------------------------
+\RequirePackage{datetime}
+\RequirePackage{cancel}
+\RequirePackage{tabularx}
+\RequirePackage{caption}
+\captionsetup{font=small}
+\RequirePackage{subcaption}
+\RequirePackage{nameref}
+\RequirePackage{array}
+\RequirePackage{tabularx}
+\RequirePackage{multicol}
+\RequirePackage{colortbl}
+\RequirePackage{nicematrix}
+
+%\RequirePackage{braket}
+%\RequirePackage{tensind}
+
+%\RequirePackage{bm}
+
+% Por defecto no imprimir marca de agua definida
+\RequirePackage[nostamp]{draftwatermark}
+% --------------------------------------------------------
+% Listados y código fuente
+\RequirePackage{listings}
+%\RequirePackage{fancyvrb}
+% --------------------------------------------------------
+% Units
+\RequirePackage{siunitx}
+\sisetup{per-mode=reciprocal}
+\sisetup{exponent-product=\cdot}
+\sisetup{output-decimal-marker = {,}}
+\sisetup{retain-explicit-plus}
+\DeclareSIUnit\cv{CV}
+% --------------------------------------------------------
+% Appendix
+\RequirePackage{appendix}
+\renewcommand{\appendixname}{Apéndices}
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices}
+% --------------------------------------------------------
+% Graphic packages
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+% TIKZ
+\RequirePackage{tikz}
+% Arrows
+%\usetikzlibrary{arrows.meta}
+\usetikzlibrary{bending}
+% Background layer
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{fit}
+% Angles
+%\usetikzlibrary{angles}
+%\usetikzlibrary{quotes}
+% Intersections
+\usetikzlibrary{intersections}
+% Positioning
+%\usetikzlibrary{positioning}
+% Decorations
+%\usetikzlibrary{decorations}
+%\usetikzlibrary{decorations.pathmorphing}
+%\usetikzlibrary{decorations.pathreplacing}
+%\usetikzlibrary{decorations.text}
+%
+%\usetikzlibrary{calc}
+%\usetikzlibrary{shapes}
+%\usetikzlibrary{shapes.geometric}
+%\usetikzlibrary{shapes.misc}
+%\usetikzlibrary{shadows}
+%\usetikzlibrary{patterns}
+%\usetikzlibrary{plotmarks}
+%\usetikzlibrary{matrix}
+\usetikzlibrary{tikzmark}
+%\usetikzlibrary{spy}
+% Boxes
+%\RequirePackage{tcolorbox}
+%\tcbuselibrary{skins}
+%\tcbuselibrary{breakable}
+%\tcbuselibrary{raster}
+%\tcbuselibrary{listings}
+%\tcbset{listing engine=listings}
+%\tcbuselibrary{minted}
+% Plots
+%\RequirePackage{pgfplots}
+%\pgfplotsset{compat=newest}
+% 3D
+%\RequirePackage{tikz-3dplot}
+% --------------------------------------------------------
+\RequirePackage{tikzpeople}
+% --------------------------------------------------------
+% Links and bookmarks
+\RequirePackage[colorlinks,linkcolor=black!70,urlcolor=gray,runcolor=gray,plainpages=false,unicode]{hyperref}
+\RequirePackage{bookmark}
+
+% --------------------------------------------------------------------
+
+%%% Local Variables:
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "mecanicateorica.tex"
+%%% End:
+
+
+% LaTeX-command: "lualatex --shell-escape"
+% LaTeX-command: "lualatex --shell-escape --interaction=nonstopmode"

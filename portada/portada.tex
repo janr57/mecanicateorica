@@ -1,0 +1,33 @@
+% portada.tex
+% Portada del libro.
+%
+% Copyright (C) 2022 José A. Navarro Ramón <janr.devel@gmail.com>
+% 1) Código LuaLatex:
+%    Licencia GPL-2.
+% 2) Producto en pdf, postscript, etc.:
+%    Licencia Creative Commons Recognition Share alike. (CC-BY-SA)
+% PORTADA
+
+\newcommand*{\titleTH}{\begingroup% T&H Typography
+\raggedleft
+\vspace*{\baselineskip}
+{\bfseries Apuntes de}\\[\baselineskip]
+{\textcolor{red}{\Huge MECÁNICA TEÓRICA}}\\[\baselineskip]
+%{\small Las matrices de Pauli y el spin. Entropía y cuántica}\par
+\vspace{2ex}
+\today\par
+\vspace*{4ex}
+{\Large José A. Navarro Ramón}\\[0.167\textheight]
+\vspace{5ex}
+{\Large \includegraphics[width=2.0cm]{./img/by-sa.eps}}\par
+\vspace*{3\baselineskip}
+\endgroup}
+
+\titleTH
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: "../mecanicateorica.tex"
+%%% End:

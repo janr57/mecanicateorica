@@ -1,0 +1,57 @@
+% mecanicateorica.tex
+%
+% Fichero principal
+%
+% Copyright (C) 2020 José A. Navarro Ramón <josea.navarro1@gmail.com>
+%
+\documentclass[a4paper,twoside]{book}
+
+% Paquetes
+\usepackage{mecanicateorica.pkg}
+% Definiciones
+\usepackage{mecanicateorica.defs}
+
+\NiceMatrixOptions{cell-space-top-limit = 1pt,cell-space-bottom-limit = 1pt}
+\begin{document}
+% -----------------------------------------------------------------------------
+% Portada
+\thispagestyle{empty}
+\include{./portada/portada}
+% -----------------------------------------------------------------------------
+% Tabla de contenidos
+\thispagestyle{empty}
+\include{./tablacontenidos/tablacontenidos}
+% -----------------------------------------------------------------------------
+\frontmatter
+\include{./prologo/prologo}
+% -----------------------------------------------------------------------------
+% Teoría
+\mainmatter
+%\part{Teoría}
+\include{./texto/eulerlagrange}
+% -----------------------------------------------------------------------------
+% Apéndices
+%%\backmatter
+%%\part{Apéndices}
+\appendix
+\renewcommand{\thechapter}{A}
+\clearpage
+\addappheadtotoc
+\appendixpage
+\include{./apendices/momento-fuerza}
+% -----------------------------------------------------------------------------
+
+\end{document}
+
+
+%%% Local Variables:
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-engine: luatex
+%%% TeX-master: t
+%%% End:
+
+
+% LaTeX-command: "lualatex --shell-escape"
+% LaTeX-command: "lualatex --shell-escape --interaction=nonstopmode"
+
