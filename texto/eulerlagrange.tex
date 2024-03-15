@@ -591,7 +591,7 @@ Vamos a resolver el problema de dos formas:
       donde se ha tenido en cuenta que $\delta L = 0$ porque al desplazarse ligeramente la barra
       respetando las ligaduras, no cambia su longitud.
 
-      Con los valores calculados, aplicamos el Principio de D'Alembert a la
+      Con los valores calculados, aplicamos el principio de D'Alembert a la
       barra, ecuación (\ref{eq:el-dalembert-barra}).
       \[
         (0,-mg) \cdot \frac{L}{2} (-\sin\theta, \cos\theta)\,\delta\theta
@@ -620,263 +620,260 @@ Vamos a resolver el problema de dos formas:
     Las ecuaciones de Euler-Lagrange se obtuvieron por primera vez aplicando el principio de D'Alembert
     dinámico, no mediante un principio variacional.
 
-    La versión dinámica del Principio de D'Alembert es
-    \begin{equation}\label{eq:el-PD-dinamico}
-      \sum_{i=1}^N \left(\dot{\vvv{p}}_i - \vvv{F}_i^{(a)}\right)\cdot \delta \vvv{r}_i = 0
+    La versión dinámica del principio de D'Alembert es \begin{equation}\label{eq:el-PD-dinamico}
+    \sum_{i=1}^N \left(\dot{\vvv{p}}_i - \vvv{F}_i^{(a)}\right)\cdot \delta \vvv{r}_i = 0
     \end{equation}
-    donde $\vvv{\dot{p}_i} = d\vvv{p}_i/dt$, con $\vvv{p}_i = m\vvv{v}_i$ siendo el momento lineal
+    donde $\vvv{\dot{p}_i} = d\vvv{p}_i/dt$, con $\vvv{p}_i = m_i\vvv{v}_i$ siendo el momento lineal
     de la partícula $i$, y $\vvv{F}_i$ es la fuerza aplicada a dicha partícula.
     Nótese además, que si la masa de la partícula es constante
     \[
       \vvv{\dot{p}}_i
       = \frac{d\vvv{p}_i}{dt}
-      = \frac{d(m\vvv{v}_i)}{dt}
-      = m\frac{d\vvv{v}_i}{dt} + \cancelout{\dfrac{dm}{dt}}\,\vvv{v}_i
-      = m \vvv{a}_i
+      = \frac{d(m_i\vvv{v}_i)}{dt}
+      = m_i\frac{d\vvv{v}_i}{dt} + \cancelout{\dfrac{dm_i}{dt}}\,\vvv{v}_i
+      = m_i \vvv{a}_i
     \]
     donde $\vvv{a}_i$ es la aceleración de la partícula $i$.
-    
-    La ecuación~(\ref{eq:el-PD-dinamico}) se puede reescribir
+    En este supuesto, la ecuación~(\ref{eq:el-PD-dinamico}) se puede reescribir como
     \[
-      \sum_{i=1}^N \left(m\vvv{a}_i - \vvv{F}_i^{(a)}\right)\cdot \delta \vvv{r}_i = 0
+      \sum_{i=1}^N \left(m_i\vvv{a}_i - \vvv{F}_i^{(a)}\right)\cdot \delta \vvv{r}_i = 0
     \]
     
-\subsubsection{Ejercicio}
 
-Consideremos una partícula de masa $m=\SI{100}{\gram}$ que desliza sin rozamiento desde lo alto y a
-través de una barra inclinada según se esquematiza en la figura~\ref{fig:el-barra2-geometria}.
-Las fuerzas que actúan sobre ella se representan en la figura~\ref{fig:el-barra2-fuerzas}.
-La fuerza aplicada es el peso $P=mg$. Debido a las características del problema, tenemos una fuerza
-de ligadura sobre la partícula, que es la normal $\vvv{N}$, perpendicular a la barra.
+    \subsubsection{Ejercicio}
+    Consideremos una partícula de masa $m=\SI{100}{\gram}$ que desliza sin rozamiento desde lo alto y a
+    lo largo de una barra inclinada según se esquematiza en la figura~\ref{fig:el-barra2-geometria}.
+    Las fuerzas que actúan sobre ella se representan en la figura~\ref{fig:el-barra2-fuerzas}.
+    La fuerza aplicada es el peso, $\vvv{P}$, cuyo módulo es $P=mg$. Debido a las características del problema,
+    tenemos una fuerza de ligadura sobre la partícula, que es la normal $\vvv{N}$, perpendicular a la barra.
 
-\begin{figure}[ht]
-  % Escala
-  \def\scl{.75}
-  \centering
-  \begin{subfigure}[b]{.43\linewidth}
-    % Barra
-    \pgfmathsetmacro{\LBARRA}{5.5}
-    \pgfmathsetmacro{\ANGBARRA}{60}
-    \pgfmathsetmacro{\RADIOANGBARRA}{2.6}
-    \pgfmathsetmacro{\LHORBARRA}{\LBARRA * cos(\ANGBARRA)}
-    \pgfmathsetmacro{\LVERBARRA}{\LBARRA * sin(\ANGBARRA)}
-    % P
-    % Partícula
-    \pgfmathsetmacro{\LPART}{.70*\LBARRA}
-    % Suelo
-    \pgfmathsetmacro{\LSUELO}{\LHORBARRA + .8}
-    \pgfmathsetmacro{\LPARED}{\LVERBARRA + .7}
-    % Soporte
-    \pgfmathsetmacro{\DISTSOPORTE}{.3}
-    \pgfmathsetmacro{\LSOPORTE}{1.1}
-    \pgfmathsetmacro{\ANGSOPORTE}{230}
-    \pgfmathsetmacro{\NUMTOTHOR}{int(\LSUELO / \DISTSOPORTE)}
-    \pgfmathsetmacro{\NUMTOTVER}{int(\LPARED / \DISTSOPORTE)}
-    % Fondo
-    \pgfmathsetmacro{\BGTOP}{5.9}
-    \pgfmathsetmacro{\BGBOTTOM}{-1.6}
-    \pgfmathsetmacro{\BGLEFT}{-1.9}
-    \pgfmathsetmacro{\BGRIGHT}{4.3}
-    %
-    \centering
-    \begin{tikzpicture}[%
-      scale=\scl,
-      baseline,
-      punto barra/.style={fill=black, draw=black, radius=.5pt},
-      angulo/.style={draw=green!50!black, fill=green!20},
-      every node/.style={black,font=\small},
-      barra/.style={black!50},
-      fuerza/.style={-{Latex[length=8pt,width=4.5pt]}, line width=1pt},
-      particula/.style={fill=red, draw=black, radius=2.5pt},
-      limite/.style={black!50},
-      soporte/.style={black!25, ultra thin},
-      linea auxiliar/.style={lightgray, ultra thin},
-      background/.style={%
-        line width=\bgborderwidth,
-        draw=\bgbordercolor,
-        fill=\bgcolor,
-      },
-      ]
-      % COORDENADAS
-      \coordinate (O) at (0,0);
-      \coordinate (xsuelo) at ($(O) + (\LSUELO, 0)$);
-      \coordinate (ypared) at ($(O) + (0,\LPARED)$);
-      \coordinate (barra1) at ($(O) + (\LHORBARRA, 0)$);
-      \coordinate (barra2) at ($(O) + (0,\LVERBARRA)$);
-      \path (barra1) -- +(180-\ANGBARRA:\LPART) coordinate (part);
-      % 
-      \coordinate (btop) at (0,\BGTOP);
-      \coordinate (bbottom) at (0,\BGBOTTOM);
-      \coordinate (bleft) at (\BGLEFT,0);
-      \coordinate (bright) at (\BGRIGHT,0);
-      % DIBUJO
-      % Medidas
-      % pared
-      \draw[linea auxiliar] (O) -- +(left:1.3) coordinate (LO);
-      \draw[linea auxiliar] (barra2) -- +(left:1.3) coordinate (Lbarra2);
-      \path (O) -- node[left=.25] {$\SI{2}{\metre}$} (barra2);
-      \draw[{Straight Barb}-, lightgray] ($(LO)!.32!(O)$) -- +(up:2.1);
-      \draw[{Straight Barb}-, lightgray] ($(Lbarra2)!.32!(barra2)$) -- +(down:2.1);
-      % suelo
-      \draw[linea auxiliar] (O) -- +(down:1.1) coordinate (BO);
-      \draw[linea auxiliar] (barra1) -- +(down:1.1) coordinate (Bbarra1);
-      \path (O) -- node[below=.3] {$\SI{1}{\metre}$} (barra1);
-      \draw[{Straight Barb}-, lightgray] ($(BO)!.31!(O)$) -- +(right:1.0);
-      \draw[{Straight Barb}-, lightgray] ($(Bbarra1)!.31!(barra1)$) -- +(left:1.0);
-      % Ángulo
-      \filldraw[angulo,-{Latex[round]}]
-      (barra1) -- +(left:\RADIOANGBARRA em)
-      arc [start angle=180, end angle=180-\ANGBARRA, radius=\RADIOANGBARRA em] -- cycle;
-      \node[above left=0pt and 5.0pt] at (barra1) {$\theta$};
-      % Suelo
-      \draw[limite] (O) -- (xsuelo);
-      % Pared
-      \draw[limite] (O) -- (ypared);
-      % Barra
-      \draw[barra] (barra1) -- node[above right=-2pt and -2pt]
-      {$L=\sqrt{5}\,\si{\metre}$} (barra2);
-      % Extremos de la barra
-      \filldraw[punto barra] (barra1) circle;
-      \filldraw[punto barra] (barra2) circle;
-      % Partícula
-      \filldraw[particula] (part) circle;
-      \node[above right] at (part) {$m$};
-      % Soporte horizontal
-      \foreach \xn in {1,2,...,\NUMTOTHOR}
-      \draw[soporte] (\DISTSOPORTE * \xn, 0) -- +(\ANGSOPORTE:\LSOPORTE em);
-      % Soporte vertical
-      \foreach \yn in {1,2,...,\NUMTOTVER}
-      \draw[soporte] (0,\DISTSOPORTE * \yn) -- +(\ANGSOPORTE:\LSOPORTE em);
-      % YELLOW BACKGROUND
-      \begin{scope}[on background layer]
-        \node [background, fit= (bleft) (bright) (btop) (bbottom)] {};
-      \end{scope}
-    \end{tikzpicture}
-    \caption{}
-    \label{fig:el-barra2-geometria}
-  \end{subfigure}
-  \hspace{2em}
-  \begin{subfigure}[b]{.43\linewidth}
-    % Barra
-    \pgfmathsetmacro{\LBARRA}{5.5}
-    \pgfmathsetmacro{\ANGBARRA}{60}
-    \pgfmathsetmacro{\RADIOANGBARRA}{1.05}
-    \pgfmathsetmacro{\LHORBARRA}{\LBARRA * cos(\ANGBARRA)}
-    \pgfmathsetmacro{\LVERBARRA}{\LBARRA * sin(\ANGBARRA)}
-    % Posición de la partícula en la barra contanto desde el suelo
-    \pgfmathsetmacro{\LPART}{.5*\LBARRA}
-    % Suelo
-    \pgfmathsetmacro{\LSUELO}{\LHORBARRA + .8}
-    \pgfmathsetmacro{\LPARED}{\LVERBARRA + .7}
-    % Material de soporte suelo y pared
-    \pgfmathsetmacro{\DISTSOPORTE}{.3}
-    \pgfmathsetmacro{\LSOPORTE}{1.1}
-    \pgfmathsetmacro{\ANGSOPORTE}{230}
-    \pgfmathsetmacro{\NUMTOTHOR}{int(\LSUELO / \DISTSOPORTE)}
-    \pgfmathsetmacro{\NUMTOTVER}{int(\LPARED / \DISTSOPORTE)}
-    % Peso
-    % Módulo del peso
-    \pgfmathsetmacro{\LPESO}{2.0}
-    % Componente del peso perpendicular a la barra
-    \pgfmathsetmacro{\PESOPERP}{\LPESO * cos(\ANGBARRA)}
-    % Normal
-    \pgfmathsetmacro{\LNORMAL}{\PESOPERP}
-    % Fondo
-    \pgfmathsetmacro{\BGTOP}{5.9}
-    \pgfmathsetmacro{\BGBOTTOM}{-1.6}
-    \pgfmathsetmacro{\BGLEFT}{-1.9}
-    \pgfmathsetmacro{\BGRIGHT}{4.3}
-    %
-    \centering
-    \begin{tikzpicture}[%
-      scale=\scl,
-      baseline,
-      punto fuerza/.style={fill=green!60!black, draw=green!60!black, radius=1.1pt},
-      punto barra/.style={fill=black, draw=black, radius=.5pt},
-      angulo/.style={draw=green!50!black, fill=green!20},
-      every node/.style={black,font=\small},
-      barra/.style={black!50},
-      fuerza/.style={-{Latex[length=8pt,width=4.5pt]}, shorten >=-2pt, line width=1.4pt, green!60!black},
-      particula/.style={fill=red, draw=black, radius=2.5pt},
-      limite/.style={black!50},
-      soporte/.style={black!25, ultra thin},
-      linea auxiliar/.style={lightgray, ultra thin},
-      background/.style={%
-        line width=\bgborderwidth,
-        draw=\bgbordercolor,
-        fill=\bgcolor,
-      },
-      ]
-      % COORDENADAS
-      \coordinate (O) at (0,0);
-      \coordinate (xsuelo) at ($(O) + (\LSUELO, 0)$);
-      \coordinate (ypared) at ($(O) + (0,\LPARED)$);
-      \coordinate (barra1) at ($(O) + (\LHORBARRA, 0)$);
-      \coordinate (barra2) at ($(O) + (0,\LVERBARRA)$);
-      \coordinate (peso) at (part);
-      \path (barra1) -- +(180-\ANGBARRA:\LPART) coordinate (part);
-      \path (part) -- +(down:\LPESO) coordinate (peso);
-      \path (part) -- +(90-\ANGBARRA:\LNORMAL) coordinate (normal);
-      % 
-      \coordinate (btop) at (0,\BGTOP);
-      \coordinate (bbottom) at (0,\BGBOTTOM);
-      \coordinate (bleft) at (\BGLEFT,0);
-      \coordinate (bright) at (\BGRIGHT,0);
-      % DIBUJO
-      % Medidas
-      % pared
-      \draw[linea auxiliar] (O) -- +(left:1.3) coordinate (LO);
-      \draw[linea auxiliar] (barra2) -- +(left:1.3) coordinate (Lbarra2);
-      \path (O) -- node[left=.25] {$\SI{2}{\metre}$} (barra2);
-      \draw[{Straight Barb}-, lightgray] ($(LO)!.32!(O)$) -- +(up:2.1);
-      \draw[{Straight Barb}-, lightgray] ($(Lbarra2)!.32!(barra2)$) -- +(down:2.1);
-      % suelo
-      \draw[lightgray, ultra thin] (O) -- +(down:1.1) coordinate (BO);
-      \draw[lightgray, ultra thin] (barra1) -- +(down:1.1) coordinate (Bbarra1);
-      \path (O) -- node[below=.3] {$\SI{1}{\metre}$} (barra1);
-      \draw[{Straight Barb}-, lightgray] ($(BO)!.31!(O)$) -- +(right:1.0);
-      \draw[{Straight Barb}-, lightgray] ($(Bbarra1)!.31!(barra1)$) -- +(left:1.0);
-      % Ángulo en la barra
-      \filldraw[angulo,-{Latex[round]}]
-      (barra1) -- +(left:\RADIOANGBARRA em)
-      arc [start angle=180, end angle=180-\ANGBARRA, radius=\RADIOANGBARRA em] -- cycle;
-      % Suelo
-      \draw[limite] (O) -- (xsuelo);
-      % Pared
-      \draw[limite] (O) -- (ypared);
-      % Barra
-      \draw[barra] (barra1) -- (barra2);
-      % Extremos de la barra
-      \filldraw[punto barra] (barra1) circle;
-      \filldraw[punto barra] (barra2) circle;
-      % Soporte horizontal
-      \foreach \xn in {1,2,...,\NUMTOTHOR}
-      \draw[soporte] (\DISTSOPORTE * \xn, 0) -- +(\ANGSOPORTE:\LSOPORTE em);
-      % Soporte vertical
-      \foreach \yn in {1,2,...,\NUMTOTVER}
-      \draw[soporte] (0,\DISTSOPORTE * \yn) -- +(\ANGSOPORTE:\LSOPORTE em);
-      % Peso
-      \draw[fuerza] (part) -- (peso);
-      \node[below left=-5pt and 0pt] at (peso) {$\vvv{P}$};
-      % Normal
-      \draw[fuerza] (part) -- (normal);
-      \node[above] at (normal) {$\vvv{N}$};
-      % Partícula
-      \filldraw[particula] (part) circle;
-      % YELLOW BACKGROUND
-      \begin{scope}[on background layer]
-        \node [background, fit= (bleft) (bright) (btop) (bbottom)] {};
-      \end{scope}
-    \end{tikzpicture}
-    \caption{}
-    \label{fig:el-barra2-fuerzas}
-  \end{subfigure}
-  \caption{Una partícula de masa $m$ desliza sin rozamiento a lo largo de una barra de longitud
-    $L=\sqrt{5}\,\si{\metre}$ que forma un ángulo con la horizontal. En la imagen $(a)$ se
-    considera la geometría del sistema, mientras que en la $(b)$ se representan las fuerzas que
-    actúan sobre la partícula.}
-\end{figure}
-
+    \begin{figure}[ht]
+      % Escala
+      \def\scl{.75}
+      \centering
+      \begin{subfigure}[b]{.43\linewidth}
+        % Barra
+        \pgfmathsetmacro{\LBARRA}{5.5}
+        \pgfmathsetmacro{\ANGBARRA}{60}
+        \pgfmathsetmacro{\RADIOANGBARRA}{2.6}
+        \pgfmathsetmacro{\LHORBARRA}{\LBARRA * cos(\ANGBARRA)}
+        \pgfmathsetmacro{\LVERBARRA}{\LBARRA * sin(\ANGBARRA)}
+        % P
+        % Partícula
+        \pgfmathsetmacro{\LPART}{.70*\LBARRA}
+        % Suelo
+        \pgfmathsetmacro{\LSUELO}{\LHORBARRA + .8}
+        \pgfmathsetmacro{\LPARED}{\LVERBARRA + .7}
+        % Soporte
+        \pgfmathsetmacro{\DISTSOPORTE}{.3}
+        \pgfmathsetmacro{\LSOPORTE}{1.1}
+        \pgfmathsetmacro{\ANGSOPORTE}{230}
+        \pgfmathsetmacro{\NUMTOTHOR}{int(\LSUELO / \DISTSOPORTE)}
+        \pgfmathsetmacro{\NUMTOTVER}{int(\LPARED / \DISTSOPORTE)}
+        % Fondo
+        \pgfmathsetmacro{\BGTOP}{5.9}
+        \pgfmathsetmacro{\BGBOTTOM}{-1.6}
+        \pgfmathsetmacro{\BGLEFT}{-1.9}
+        \pgfmathsetmacro{\BGRIGHT}{4.3}
+        % 
+        \centering
+        \begin{tikzpicture}[%
+          scale=\scl,
+          baseline,
+          punto barra/.style={fill=black, draw=black, radius=.5pt},
+          angulo/.style={draw=green!50!black, fill=green!20},
+          every node/.style={black,font=\small},
+          barra/.style={black!50},
+          fuerza/.style={-{Latex[length=8pt,width=4.5pt]}, line width=1pt},
+          particula/.style={fill=red, draw=black, radius=2.5pt},
+          limite/.style={black!50},
+          soporte/.style={black!25, ultra thin},
+          linea auxiliar/.style={lightgray, ultra thin},
+          background/.style={%
+            line width=\bgborderwidth,
+            draw=\bgbordercolor,
+            fill=\bgcolor,
+          },
+          ]
+          % COORDENADAS
+          \coordinate (O) at (0,0);
+          \coordinate (xsuelo) at ($(O) + (\LSUELO, 0)$);
+          \coordinate (ypared) at ($(O) + (0,\LPARED)$);
+          \coordinate (barra1) at ($(O) + (\LHORBARRA, 0)$);
+          \coordinate (barra2) at ($(O) + (0,\LVERBARRA)$);
+          \path (barra1) -- +(180-\ANGBARRA:\LPART) coordinate (part);
+          % 
+          \coordinate (btop) at (0,\BGTOP);
+          \coordinate (bbottom) at (0,\BGBOTTOM);
+          \coordinate (bleft) at (\BGLEFT,0);
+          \coordinate (bright) at (\BGRIGHT,0);
+          % DIBUJO
+          % Medidas
+          % pared
+          \draw[linea auxiliar] (O) -- +(left:1.3) coordinate (LO);
+          \draw[linea auxiliar] (barra2) -- +(left:1.3) coordinate (Lbarra2);
+          \path (O) -- node[left=.25] {$\SI{2}{\metre}$} (barra2);
+          \draw[{Straight Barb}-, lightgray] ($(LO)!.32!(O)$) -- +(up:2.1);
+          \draw[{Straight Barb}-, lightgray] ($(Lbarra2)!.32!(barra2)$) -- +(down:2.1);
+          % suelo
+          \draw[linea auxiliar] (O) -- +(down:1.1) coordinate (BO);
+          \draw[linea auxiliar] (barra1) -- +(down:1.1) coordinate (Bbarra1);
+          \path (O) -- node[below=.3] {$\SI{1}{\metre}$} (barra1);
+          \draw[{Straight Barb}-, lightgray] ($(BO)!.31!(O)$) -- +(right:1.0);
+          \draw[{Straight Barb}-, lightgray] ($(Bbarra1)!.31!(barra1)$) -- +(left:1.0);
+          % Ángulo
+          \filldraw[angulo,-{Latex[round]}]
+          (barra1) -- +(left:\RADIOANGBARRA em)
+          arc [start angle=180, end angle=180-\ANGBARRA, radius=\RADIOANGBARRA em] -- cycle;
+          \node[above left=0pt and 5.0pt] at (barra1) {$\theta$};
+          % Suelo
+          \draw[limite] (O) -- (xsuelo);
+          % Pared
+          \draw[limite] (O) -- (ypared);
+          % Barra
+          \draw[barra] (barra1) -- node[above right=-2pt and -2pt]
+          {$L=\sqrt{5}\,\si{\metre}$} (barra2);
+          % Extremos de la barra
+          \filldraw[punto barra] (barra1) circle;
+          \filldraw[punto barra] (barra2) circle;
+          % Partícula
+          \filldraw[particula] (part) circle;
+          \node[above right] at (part) {$m$};
+          % Soporte horizontal
+          \foreach \xn in {1,2,...,\NUMTOTHOR}
+          \draw[soporte] (\DISTSOPORTE * \xn, 0) -- +(\ANGSOPORTE:\LSOPORTE em);
+          % Soporte vertical
+          \foreach \yn in {1,2,...,\NUMTOTVER}
+          \draw[soporte] (0,\DISTSOPORTE * \yn) -- +(\ANGSOPORTE:\LSOPORTE em);
+          % YELLOW BACKGROUND
+          \begin{scope}[on background layer]
+            \node [background, fit= (bleft) (bright) (btop) (bbottom)] {};
+          \end{scope}
+        \end{tikzpicture}
+        \caption{}
+        \label{fig:el-barra2-geometria}
+      \end{subfigure}
+      \hspace{2em}
+      \begin{subfigure}[b]{.43\linewidth}
+        % Barra
+        \pgfmathsetmacro{\LBARRA}{5.5}
+        \pgfmathsetmacro{\ANGBARRA}{60}
+        \pgfmathsetmacro{\RADIOANGBARRA}{1.05}
+        \pgfmathsetmacro{\LHORBARRA}{\LBARRA * cos(\ANGBARRA)}
+        \pgfmathsetmacro{\LVERBARRA}{\LBARRA * sin(\ANGBARRA)}
+        % Posición de la partícula en la barra contanto desde el suelo
+        \pgfmathsetmacro{\LPART}{.5*\LBARRA}
+        % Suelo
+        \pgfmathsetmacro{\LSUELO}{\LHORBARRA + .8}
+        \pgfmathsetmacro{\LPARED}{\LVERBARRA + .7}
+        % Material de soporte suelo y pared
+        \pgfmathsetmacro{\DISTSOPORTE}{.3}
+        \pgfmathsetmacro{\LSOPORTE}{1.1}
+        \pgfmathsetmacro{\ANGSOPORTE}{230}
+        \pgfmathsetmacro{\NUMTOTHOR}{int(\LSUELO / \DISTSOPORTE)}
+        \pgfmathsetmacro{\NUMTOTVER}{int(\LPARED / \DISTSOPORTE)}
+        % Peso
+        % Módulo del peso
+        \pgfmathsetmacro{\LPESO}{2.0}
+        % Componente del peso perpendicular a la barra
+        \pgfmathsetmacro{\PESOPERP}{\LPESO * cos(\ANGBARRA)}
+        % Normal
+        \pgfmathsetmacro{\LNORMAL}{\PESOPERP}
+        % Fondo
+        \pgfmathsetmacro{\BGTOP}{5.9}
+        \pgfmathsetmacro{\BGBOTTOM}{-1.6}
+        \pgfmathsetmacro{\BGLEFT}{-1.9}
+        \pgfmathsetmacro{\BGRIGHT}{4.3}
+        % 
+        \centering
+        \begin{tikzpicture}[%
+          scale=\scl,
+          baseline,
+          punto fuerza/.style={fill=green!60!black, draw=green!60!black, radius=1.1pt},
+          punto barra/.style={fill=black, draw=black, radius=.5pt},
+          angulo/.style={draw=green!50!black, fill=green!20},
+          every node/.style={black,font=\small},
+          barra/.style={black!50},
+          fuerza/.style={-{Latex[length=8pt,width=4.5pt]}, shorten >=-2pt, line width=1.4pt, green!60!black},
+          particula/.style={fill=red, draw=black, radius=2.5pt},
+          limite/.style={black!50},
+          soporte/.style={black!25, ultra thin},
+          linea auxiliar/.style={lightgray, ultra thin},
+          background/.style={%
+            line width=\bgborderwidth,
+            draw=\bgbordercolor,
+            fill=\bgcolor,
+          },
+          ]
+          % COORDENADAS
+          \coordinate (O) at (0,0);
+          \coordinate (xsuelo) at ($(O) + (\LSUELO, 0)$);
+          \coordinate (ypared) at ($(O) + (0,\LPARED)$);
+          \coordinate (barra1) at ($(O) + (\LHORBARRA, 0)$);
+          \coordinate (barra2) at ($(O) + (0,\LVERBARRA)$);
+          \coordinate (peso) at (part);
+          \path (barra1) -- +(180-\ANGBARRA:\LPART) coordinate (part);
+          \path (part) -- +(down:\LPESO) coordinate (peso);
+          \path (part) -- +(90-\ANGBARRA:\LNORMAL) coordinate (normal);
+          % 
+          \coordinate (btop) at (0,\BGTOP);
+          \coordinate (bbottom) at (0,\BGBOTTOM);
+          \coordinate (bleft) at (\BGLEFT,0);
+          \coordinate (bright) at (\BGRIGHT,0);
+          % DIBUJO
+          % Medidas
+          % pared
+          \draw[linea auxiliar] (O) -- +(left:1.3) coordinate (LO);
+          \draw[linea auxiliar] (barra2) -- +(left:1.3) coordinate (Lbarra2);
+          \path (O) -- node[left=.25] {$\SI{2}{\metre}$} (barra2);
+          \draw[{Straight Barb}-, lightgray] ($(LO)!.32!(O)$) -- +(up:2.1);
+          \draw[{Straight Barb}-, lightgray] ($(Lbarra2)!.32!(barra2)$) -- +(down:2.1);
+          % suelo
+          \draw[lightgray, ultra thin] (O) -- +(down:1.1) coordinate (BO);
+          \draw[lightgray, ultra thin] (barra1) -- +(down:1.1) coordinate (Bbarra1);
+          \path (O) -- node[below=.3] {$\SI{1}{\metre}$} (barra1);
+          \draw[{Straight Barb}-, lightgray] ($(BO)!.31!(O)$) -- +(right:1.0);
+          \draw[{Straight Barb}-, lightgray] ($(Bbarra1)!.31!(barra1)$) -- +(left:1.0);
+          % Ángulo en la barra
+          \filldraw[angulo,-{Latex[round]}]
+          (barra1) -- +(left:\RADIOANGBARRA em)
+          arc [start angle=180, end angle=180-\ANGBARRA, radius=\RADIOANGBARRA em] -- cycle;
+          % Suelo
+          \draw[limite] (O) -- (xsuelo);
+          % Pared
+          \draw[limite] (O) -- (ypared);
+          % Barra
+          \draw[barra] (barra1) -- (barra2);
+          % Extremos de la barra
+          \filldraw[punto barra] (barra1) circle;
+          \filldraw[punto barra] (barra2) circle;
+          % Soporte horizontal
+          \foreach \xn in {1,2,...,\NUMTOTHOR}
+          \draw[soporte] (\DISTSOPORTE * \xn, 0) -- +(\ANGSOPORTE:\LSOPORTE em);
+          % Soporte vertical
+          \foreach \yn in {1,2,...,\NUMTOTVER}
+          \draw[soporte] (0,\DISTSOPORTE * \yn) -- +(\ANGSOPORTE:\LSOPORTE em);
+          % Peso
+          \draw[fuerza] (part) -- (peso);
+          \node[below left=-5pt and 0pt] at (peso) {$\vvv{P}$};
+          % Normal
+          \draw[fuerza] (part) -- (normal);
+          \node[above] at (normal) {$\vvv{N}$};
+          % Partícula
+          \filldraw[particula] (part) circle;
+          % YELLOW BACKGROUND
+          \begin{scope}[on background layer]
+            \node [background, fit= (bleft) (bright) (btop) (bbottom)] {};
+          \end{scope}
+        \end{tikzpicture}
+        \caption{}
+        \label{fig:el-barra2-fuerzas}
+      \end{subfigure}
+      \caption{Una partícula de masa $m$ desliza sin rozamiento a lo largo de una barra de longitud
+        $L=\sqrt{5}\,\si{\metre}$ que forma un ángulo con la horizontal. En la imagen $(a)$ se
+        considera la geometría del sistema, mientras que en la $(b)$ se representan las fuerzas que
+        actúan sobre la partícula.}
+    \end{figure}
 Primero calculamos el seno y el coseno del ángulo $\theta$ que forma la barra con el suelo
 \begin{align}
   \label{eq:el-barra2-sin}
@@ -1207,10 +1204,8 @@ partícula va a caer. Ahora utilizamos la segunda ley de Newton, teniendo en cue
 
 Igualando componente a componente obtenemos $a_{x'}$ y $N$.
 \begin{align}
-  a_{x'}
-  &= g\sin\theta = 10\cdot\frac{2}{\sqrt{5}} = 4\sqrt{5}\,\si{\metre\per\square\second}\\
-  N
-  &= mg\cos\theta = 0,1\cdot 10\cdot\frac{1}{\sqrt{5}} = \frac{\sqrt{5}}{5}\,\si{\newton}
+  &a_{x'} = g\sin\theta = 10\cdot\frac{2}{\sqrt{5}} = 4\sqrt{5}\,\unit{\metre\per\square\second}\\
+  & N = mg\cos\theta = 0,1\cdot 10\cdot\frac{1}{\sqrt{5}} = \frac{\sqrt{5}}{5}\,\unit{\newton}
 \end{align}
 donde hemos utilizado las razones trigonométricas~\ref{eq:el-barra2-sin}
 y~\ref{eq:el-barra2-cos}, además de aproximar la aceleración de la gravedad en la superficie
@@ -1227,7 +1222,7 @@ Como $a_{x'}$ es la única componente de la aceleración, en valor absoluto es s
 %  P_{y'} &= -mg\cos\theta = -0,1\cdot 10\cdot\frac{1}{\sqrt{5}} = \frac{\sqrt{5}}{5}\,\si{\newton}
 %\end{align}
 
-Para poder comparar estos resultados con los que obtendremos después aplicando el Principio de
+Para poder comparar estos resultados con los que obtendremos después aplicando el principio de
 D'Alembert dinámico, vamos a \emph{rotar} un ángulo $\theta=+\ang{60}$ el sistema de coordenadas
 de ejes $x'$ e $y'$, para obtener la misma orientación que el sistema con ejes $x$ e $y$ horizontal
 y vertical, respectivamente.
@@ -1408,7 +1403,7 @@ Las componentes cartesianas de la aceleración en el sistema de referencia no in
     \right.
 \end{equation}
 
-Antes de resolver el ejercicio mediante el Principio de D'Alembert, calculemos el tiempo
+Antes de resolver el ejercicio mediante el principio de D'Alembert, calculemos el tiempo
 que tardará en llegar al suelo, si la partícula se suelta desde lo alto de la barra, a
 \SI{2}{\metre} de altura.
 
@@ -1440,14 +1435,14 @@ obtenemos
   t = \frac{1}{\sqrt{2}}\,\si{\second}
 \end{equation}
 
-
-\item Aplicando el \emph{Principio de D'Alembert dinámico}:
+\par
+\item Aplicando el \emph{principio de D'Alembert dinámico}:
 
   Tenemos una fuerza de ligadura, $\vvv{N}$, que es la fuerza normal que ejerce la barra
   sobre la partícula. Nos queda una única fuerza aplicada, $\vvv{P}$, que es el peso de la
   partícula, $\vvv{P} = (0,-mg)$.
 
-  El Principio de D'Alembert dinámico es
+  El principio de D'Alembert dinámico es
   \[
     \sum_i \left(\vvv{\dot{p}}_i - \vvv{F}_i^{(a)}\right) \cdot \delta\vvv{r}_i = 0
   \]
@@ -1792,7 +1787,7 @@ obtenemos
 Conforme los sistemas se vuelven más complicados (con más ligaduras), la aplicación de las leyes de
 Newton se convierte en un calvario, mientras que parametrizando el vector de posición, utilizando
 unas variables que llamaremos \emph{coordenadas generalizadas} $q_i$ es un más sencillo.
-Pero, no con el Principio de D'Alembert, sino por medio de las ecuaciones de Euler-Lagrange,
+Pero, no con el principio de D'Alembert, sino por medio de las ecuaciones de Euler-Lagrange,
 que no dan tanto rodeo.
 
 \section{Ecuaciones de Euler-Lagrange}
@@ -1994,7 +1989,7 @@ identidad~(\ref{eq:el-primera-identidad}).
 \end{enumerate}
 
 \subsubsection{Desarrollo}
-Partimos del Principio de D'Alembert dinámico
+Partimos del principio de D'Alembert dinámico
 \begin{equation}\label{eq:el-PD-dinamico-dos}
   \sum_{i=1}^N \left(\dot{\vvv{p}}_i - \vvv{F}_i^{(a)}\right)\cdot \delta\vvv{r}_i
 \end{equation}
