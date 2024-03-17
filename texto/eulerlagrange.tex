@@ -1793,21 +1793,21 @@ que no dan tanto rodeo.
 \section{Ecuaciones de Euler-Lagrange}
 
 \subsection{Deducción sencilla}
-Para que la explicación sea lo más sencilla posible, vamos a deducirlas para una sola partícula en
-el caso de que se necesite únicamente una coordenada generalizada $q$. En cuanto se entienda este
-desarrollo, sería casi inmediato generalizarlo para más partículas y más coordenadas generalizadas.
+Para que la explicación sea lo más sencilla posible, vamos a deducir la ecuación de Euler-Lagrange
+para una partícula con una coordenada generalizada $q$. En cuanto se entienda este desarrollo,
+sería casi inmediato generalizarlo y obtener las ecuaciones para más partículas y más coordenadas
+generalizadas.
 \subsubsection{Consideraciones generales a tener en cuenta}
-Para deducir las ecuaciones de Euler-Lagrange es muy importante tener en cuenta, entre otras,
-las siguientes consideraciones:
+Para empezar, es muy importante tener en cuenta, entre otras, las siguientes consideraciones:
 \begin{itemize}
-\item La posición de una partícula sólo puede depender de $q$ y de $t$, pero no de la velocidad
+\item La posición de la partícula solo puede depender de $q$ y de $t$, pero no de la velocidad
   generalizada $\dot{q}$
   \begin{equation}
     \vvv{r} = \vvv{r}(q,t)
   \end{equation}
   
-  El que la posición no dependa de $\dot{q}$ implicará que la derivada parcial de $\vvv{r}$ o, de
-  cualquier derivada de esta, con respecto de $\dot{q}$ vale cero. Así podríamos escribir
+  El que la posición no dependa de $\dot{q}$, implicará que la derivada parcial de \vvv{r} (o de cualquier
+  derivada parcial de \vvv{r}) con respecto de $\dot{q}$  vale cero. Así podríamos escribir
   \begin{equation}
     \frac{\partial\vvv{r}}{\partial\dot{q}} = 0
     ;\hspace{1em}
@@ -1816,9 +1816,12 @@ las siguientes consideraciones:
     \frac{\partial}{\partial\dot{q}}\left(\frac{\partial\vvv{r}}{\partial t}\right) = 0
   \end{equation}
   En cambio, la velocidad $\vvv{v}$ sí puede depender de la velocidad generalizada $\dot{q}$, así que
-  la siguiente derivada tiene porqué anularse
+  la siguiente derivada no tiene porqué anularse
   \[
-    \frac{\partial\vvv{v}}{\partial\dot{q}} \neq 0
+    \frac{\partial\vvv{v}}{\partial\dot{q}}
+    =
+    \frac{\partial}{\partial\dot{q}}\left(\frac{d\vvv{r}}{dt}\right)
+    \neq 0
     \hspace{2em}
     \text{(en general)}
   \]
@@ -1994,7 +1997,7 @@ Partimos del principio de D'Alembert dinámico
   \sum_{i=1}^N \left(\dot{\vvv{p}}_i - \vvv{F}_i^{(a)}\right)\cdot \delta\vvv{r}_i
 \end{equation}
 
-Como sólo tenemos una partícula, el sumatorio se reduce a un único término, y para simplificar
+Como solo tenemos una partícula, el sumatorio se reduce a un único término, y para simplificar
 la notación, consideremos que $\vvv{F}$ es la fuerza aplicada a la partícula (recordemos que
 no se tienen en cuenta las fuerzas de ligadura)
 \[
@@ -2090,7 +2093,7 @@ Euler-Lagrange
   \frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}}\right) - \frac{\partial T}{\partial q}
   = \vvv{F}\cdot\frac{\partial\vvv{r}}{\partial q}
 \end{equation}
-Esta ecuación sólo es válida para una partícula con un grado de libertad.
+Esta ecuación solo es válida para una partícula con un grado de libertad.
 La fuerza $\vvv{F}$ no tiene porqué ser conservativa, podría ser también una fuerza de fricción.
 
 \subsubsection{Caso conservativo}
@@ -2164,7 +2167,7 @@ que son las que tienen mayor interés en Física Teórica.
 En realidad se trata de una única ecuación, pero la cosa cambia cuando hay varios grados
 de libertad, una ecuación por cada uno.
 
-Sólo nos queda explicar cómo se generalizaría en estas otras condiciones,
+Solo nos queda explicar cómo se generalizaría en estas otras condiciones,
 $N$ partículas y $n$ grados de libertad.
 Por tener el sistema $N$ partículas, la energía cinética y el potencial serían
 \begin{align*}
