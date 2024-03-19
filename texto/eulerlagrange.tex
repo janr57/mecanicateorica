@@ -1990,7 +1990,7 @@ identidad~(\ref{eq:el-primera-identidad}).
 \subsubsection{Desarrollo}
 Partimos del principio de D'Alembert dinámico
 \begin{equation}\label{eq:el-PD-dinamico-dos}
-  \sum_{i=1}^N \left(\dot{\vvv{p}}_i - \vvv{F}_i^{(a)}\right)\cdot \delta\vvv{r}_i
+  \sum_{i=1}^N \left(\dot{\vvv{p}}_i - \vvv{F}_i^{(a)}\right)\cdot \delta\vvv{r}_i = 0
 \end{equation}
 
 Como solo tenemos una partícula, el sumatorio se reduce a un único término, y para simplificar
@@ -2011,9 +2011,10 @@ Esta parametrización no puede ser cualquiera, pues debe respetar las ligaduras 
 sistema (en este caso, a la partícula). Llamaremos $q$ a este parámetro, que representa el único
 grado de libertad que tiene la partícula.
 
-Para obtener el desplazamiento virtual, aplicamos la regla de la cadena
+Para obtener el desplazamiento virtual, aplicamos la regla de la cadena sin tener en cuenta la variación
+con el tiempo ($\delta t = 0$, por ser desplazamiento virtual)
 \[
-  \delta\vvv{r} = \frac{\partial\vvv{r}}{\partial q}\,\partial q
+  \delta\vvv{r} = \frac{\partial\vvv{r}}{\partial q}\,\delta q
 \]
 
 Además, recordando que $\vvv{p} = m\vvv{v}$ y $\dot{\vvv{p}} = m\dot{\vvv{v}}$
@@ -2039,7 +2040,7 @@ Queremos conseguir que la derivada con respecto al tiempo ocupe toda esta expres
 Empezamos introduciendo la constante $m$ en la derivada
 \[
   m\dot{\vvv{v}}\cdot\frac{\partial\vvv{r}}{\partial q}
-  = m\frac{dv}{dt}\cdot\frac{\partial\vvv{r}}{\partial q}
+  = m\frac{d\vvv{v}}{dt}\cdot\frac{\partial\vvv{r}}{\partial q}
   = \frac{d}{dt}\left(m\vvv{v}\right)\cdot\frac{\partial\vvv{r}}{\partial q}
 \]
 
@@ -2079,12 +2080,15 @@ Recuperamos la fórmula~\ref{eq:el-EL-temp01} sustituyendo el resultado anterior
 Reorganizando y sacando factor común $\delta q$
 \[
   \left\{
-    \left[\frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}}\right)\right] - Q
+    \left[\frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}}\right) - \frac{\partial T}{\partial q}\right] - Q
   \right\}\delta q = 0
 \]
 
-Como $\delta q$ no puede ser cero, obtenemos una primera versión de las ecuaciones de
-Euler-Lagrange
+Como $\delta q$ no puede ser cero
+\[
+  \left[\frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}}\right) - \frac{\partial T}{\partial q}\right] = Q
+\]
+Así, obtenemos una primera versión de las ecuaciones de Euler-Lagrange
 \begin{equation}\label{eq:el-EL-primera-version}
   \frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}}\right) - \frac{\partial T}{\partial q}
   = \vvv{F}\cdot\frac{\partial\vvv{r}}{\partial q}
@@ -2114,9 +2118,9 @@ de las ecuaciones de Euler-Lagrange
     \frac{\partial x}{\partial q}, \frac{\partial y}{\partial q}, \frac{\partial z}{\partial q}
   \right)
   = -\left(
-    \frac{\partial V}{\partial x}\,\frac{\partial x}{\partial q}
-    + \frac{\partial V}{\partial y}\,\frac{\partial y}{\partial q}
-    + \frac{\partial V}{\partial z}\,\frac{\partial z}{\partial q}
+    \frac{\partial V}{\cancelout{\partial x}}\,\frac{\cancelout{\partial x}}{\partial q}
+    + \frac{\partial V}{\cancelout{\partial y}}\,\frac{\cancelout{\partial y}}{\partial q}
+    + \frac{\partial V}{\cancelout{\partial z}}\,\frac{\cancelout{\partial z}}{\partial q}
     \right)\\
   &= -\frac{\partial V}{\partial q}
 \end{align*}
