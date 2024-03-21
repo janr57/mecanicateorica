@@ -2095,10 +2095,16 @@ Así, obtenemos una primera versión de las ecuaciones de Euler-Lagrange
 \end{equation}
 Esta ecuación solo es válida para una partícula con un grado de libertad.
 La fuerza $\vvv{F}$ no tiene porqué ser conservativa, podría ser también una fuerza de fricción.
+Esta versión de las ecuación de Euler-Lagrange para una partícula con un grado de libertad es
+apropiada cuando algunas fuerzas aplicadas son no conservativas.
 
 \subsubsection{Caso conservativo}
-Pero en Física Teórica la fuerza $\vvv{F}$ suele ser conservativa, esto es, la fuerza proviene
-de un potencial
+Pero en Física Teórica, la fuerza $\vvv{F}$ suele ser conservativa, en este caso, el rotacional de la
+fuerza se anula
+\[
+  \vvv{\nabla}\times\vvv{F} = 0
+\]
+y la fuerza proviene de un potencial
 \[
   \vvv{F} = -\vvv{\nabla} V
   = -\,\left(
@@ -2108,9 +2114,9 @@ de un potencial
 
 Calculamos el segundo miembro de la primera versión~\ref{eq:el-EL-primera-version}
 de las ecuaciones de Euler-Lagrange
-\begin{align*}
+\[
   \vvv{F}\cdot\frac{\partial\vvv{r}}{\partial q}
-  &= -\left(
+  = -\left(
     \frac{\partial V}{\partial x}, \frac{\partial V}{\partial y}, \frac{\partial V}{\partial z}
   \right)
   \cdot
@@ -2118,14 +2124,19 @@ de las ecuaciones de Euler-Lagrange
     \frac{\partial x}{\partial q}, \frac{\partial y}{\partial q}, \frac{\partial z}{\partial q}
   \right)
   = -\left(
-    \frac{\partial V}{\cancelout{\partial x}}\,\frac{\cancelout{\partial x}}{\partial q}
-    + \frac{\partial V}{\cancelout{\partial y}}\,\frac{\cancelout{\partial y}}{\partial q}
-    + \frac{\partial V}{\cancelout{\partial z}}\,\frac{\cancelout{\partial z}}{\partial q}
-    \right)\\
-  &= -\frac{\partial V}{\partial q}
-\end{align*}
-
-Sustituimos en~(\ref{eq:el-EL-primera-version})
+    \frac{\partial V}{\partial x}\,\frac{\partial x}{\partial q}
+    + \frac{\partial V}{\partial y}\,\frac{\partial y}{\partial q}
+    + \frac{\partial V}{\partial z}\,\frac{\partial z}{\partial q}
+    \right)
+\]
+donde el término entre paréntesis es la aplicación de la regla de la cadena cuando se deriva
+el potencial $V$ con respecto de $q$, cuando depende de las tres coordenadas cartesianas.
+\[
+  \vvv{F}\cdot\frac{\partial\vvv{r}}{\partial q}
+  =
+  -\frac{\partial V}{\partial q}
+\]
+Así, sustituyendo en~(\ref{eq:el-EL-primera-version})
 \[
   \frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}}\right)
   - \frac{\partial T}{\partial q}
