@@ -2166,7 +2166,7 @@ Por tanto, podemos añadirlo a~\ref{eq:el-EL-temp02}
   = 0
 \]
 
-Si llamamos \emph{lagrangiana}, a $\symcal{L} = T - V$, las ecuaciones de Euler-Lagrange
+Si llamamos \emph{lagrangiano}, a $\symcal{L} = T - V$, las ecuaciones de Euler-Lagrange
 quedarían
 \begin{equation}\label{eq:el-EL-segunda-version}
   \frac{d}{dt}\left(\frac{\partial \symcal{L}}{\partial\dot{q}}\right)
@@ -2175,8 +2175,9 @@ quedarían
 \end{equation}
 que son válidas para fuerzas que derivan de un potencial que no dependa de la velocidad,
 que son las que tienen mayor interés en Física Teórica.
-En realidad se trata de una única ecuación, pero la cosa cambia cuando hay varios grados
-de libertad, una ecuación por cada uno.
+Hemos obtenido una única ecuación para una coordenada generalizada $q$ (un grado de libertad),
+pero la cosa cambia cuando hay varios grados de libertad; tendremos una ecuación por cada coordenada
+generalizada.
 
 Solo nos queda explicar cómo se generalizaría en estas otras condiciones,
 $N$ partículas y $n$ grados de libertad.
@@ -2454,7 +2455,7 @@ Empezamos por $v_M^2$
 \begin{equation}
   v_M^2 = \dot{x}^2
 \end{equation}
-y seguimos por $v_m^2$ que es algo más elaborado
+y seguimos por $v_m^2$, que es algo más elaborado
 \begin{align*}
   v_m^2
   &= \vvv{v}_m\cdot\vvv{v}_m
@@ -2494,21 +2495,21 @@ $V = V_M + V_m$. Situamos el origen para medir las alturas en $y=0$, entonces
   V = Mg\cdot 0 + (-mgL\cos\theta) = -mgL\cos\theta
 \end{equation}
 
-La función lagrangiana $\symcal{L}$ es
+El lagrangiano $\symcal{L}$ es
 \[
   \symcal{L} = T - V
   = \dfrac{1}{2}(M+m)\dot{x}^2 + \dfrac{1}{2}mL^2\dot{\theta}^2 + mL\dot{x}\dot{\theta}\cos\theta
   - (-mgL\cos\theta)
 \]
 
-La lagrangiana resulta
+El lagrangiano resulta
 \begin{equation}
   \symcal{L}
   = \dfrac{1}{2}(M+m)\dot{x}^2 + \dfrac{1}{2}mL^2\dot{\theta}^2 + mL\dot{x}\dot{\theta}\cos\theta
   + mg\cos\theta
 \end{equation}
 
-Ahora calculamos las derivadas parciales de la lagrangiana relacionadas con $x$
+Ahora calculamos las derivadas parciales del lagrangiano relacionadas con $x$
 \begin{align}
   \frac{\partial\symcal{L}}{\partial x} &= 0\\
   \frac{\partial\symcal{L}}{\partial\dot{x}} &= (M+m)\dot{x} + mL\dot{\theta}\cos\theta
@@ -2526,7 +2527,7 @@ Resolvemos las ecuaciones de Euler-Lagrange:
     \frac{d}{dt}\left(\frac{\partial\symcal{L}}{\partial\dot{x}}\right)
     = \frac{\partial\symcal{L}}{\partial x}
   \]
-  Cuando la lagrangiana no depende de una variable generalizada ($x$ en este caso)
+  Cuando el lagrangiano no depende de una variable generalizada ($x$ en este caso)
   se dice que es una \emph{variable cíclica}.
   Por ahora, nos tomaremos esto como una curiosidad. En su momento veremos su relación
   con las leyes de conservación
@@ -2555,7 +2556,7 @@ Resolvemos las ecuaciones de Euler-Lagrange:
   Simplificamos y reorganizamos términos, obtenemos la ecuación del movimiento con respecto a la
   variable $\theta$
   \begin{equation}\label{eq:el-EL-pendulo-Mm-ecuacion-theta}
-    \ddot{\theta} = -\frac{\ddot{x}}{L}\cos\theta - \frac{g}{L}\sin\theta
+    \ddot{\theta} = -\frac{1}{L}\ddot{x}\cos\theta - \frac{g}{L}\sin\theta
   \end{equation}
 \end{itemize}
 
@@ -2563,12 +2564,12 @@ Vemos que las dos ecuaciones del movimiento, \ref{eq:el-EL-pendulo-Mm-ecuacion-t
 y \ref{eq:el-EL-pendulo-Mm-ecuacion-theta} están acopladas, lo que significa que en
 las dos se encuentran las variables $x$ y $\theta$ o sus derivadas temporales.
 
-Cuando las ecuaciones están acopladas no se pueden resolver la mayor parte de las veces.
+Las ecuaciones acopladas no se pueden resolver la mayor parte de las veces.
 Como consecuencia, hemos realizado una simulación numérica, con los siguientes
 valores iniciales
 \begin{align*}
-  \dot{x} &= 0\\
-  \dot{\theta} &= 0
+  \dot{x}(0) &= 0\\
+  \dot{\theta}(0) &= 0
 \end{align*}
 
 
